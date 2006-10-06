@@ -11,10 +11,16 @@ Service Pack Roll. When good code goes bad.
 
 <changelog>
 $Log: service-pack-server.xml,v $
+Revision 1.2  2006/10/06 23:35:33  bruno
+install the documentation on the frontend
+
 Revision 1.1  2006/10/06 23:33:45  bruno
 first draft
 
 </changelog>
+
+
+<package>roll-service-pack-usersguide</package>
 
 
 <!-- this fix is from dns-server.xml -->
