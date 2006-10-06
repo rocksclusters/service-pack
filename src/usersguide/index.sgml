@@ -1,0 +1,57 @@
+<!--
+$Id: index.sgml,v 1.1 2006/10/06 23:33:45 bruno Exp $
+
+@Copyright@
+@Copyright@
+
+$Log: index.sgml,v $
+Revision 1.1  2006/10/06 23:33:45  bruno
+first draft
+
+
+-->
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V3.1//EN" [
+	<!ENTITY % entities SYSTEM "entities.sgml">
+	%entities;
+]>
+
+<book>
+<bookinfo>
+
+	<title> Service Pack Roll: Users Guide </title>
+
+	<subtitle>
+		<inlinemediaobject>
+			<imageobject>
+				<imagedata fileref="images/service-pack.png">
+			</imageobject>
+		</inlinemediaobject>
+	</subtitle>
+
+        <edition>Version &document_version;</edition>
+        <pubdate>&document_pubdate;</pubdate>
+        <copyright id="copyright" xreflabel="copyright">
+                <year>&document_year;</year>
+                <holder>&document_copyright;</holder>    
+        </copyright>
+
+        <releaseinfo>
+	<ulink url="roll-service-pack-usersguide.pdf">(PDF version)</ulink>
+        </releaseinfo>
+
+        <legalnotice>
+                <para>
+                This document is subject to the Rocks License 
+                (see <xref linkend="rocks-copyright">).
+                </para>
+        </legalnotice>
+
+</bookinfo>
+
+&source_preface;
+&source_roll-overview;
+&source_installing;
+&source_fixes;
+&source_appendix;
+
+</book>

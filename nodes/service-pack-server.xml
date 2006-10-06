@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="no"?>
+
+
+<kickstart roll="service-pack">
+
+
+<description>
+Service Pack Roll. When good code goes bad.
+</description>
+
+
+<changelog>
+$Log: service-pack-server.xml,v $
+Revision 1.1  2006/10/06 23:33:45  bruno
+first draft
+
+</changelog>
+
+
+<!-- this fix is from dns-server.xml -->
+
+<post>
+<file name="/etc/rndc.conf" perms="0640" owner="root.named">
+options {
+	default-server  localhost;
+	default-key     "rndckey";
+};
+
+server localhost {
+	key     "rndckey";
+};
+
+include "/etc/rndc.key";
+</file>
+
+/opt/rocks/sbin/insert-ethers --update
+</post>
+
+
+</kickstart> 
+

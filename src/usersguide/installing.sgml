@@ -1,0 +1,34 @@
+<chapter id="installing" xreflabel="Installing">
+
+
+<title>Installing</title>
+
+&source_roll-installing-standard;
+
+&source_roll-installing-onthefly;
+
+
+<section id="installing-nodes" xreflabel="Adding the Roll to Nodes">
+<title>Adding the Roll to Nodes</title>
+
+<para>
+To add the the Service Pack Roll to the nodes of your cluster, you'll
+need to reinstall the nodes.
+</para>
+
+<para>
+To reinstall all your nodes, as root execute:
+</para>
+
+<para>
+<screen>
+# tentakel '/boot/kickstart/cluster-kickstart'
+</screen>
+</para>
+
+</section>
+
+
+
+</chapter>
+

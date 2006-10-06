@@ -1,0 +1,33 @@
+<!--
+$Id: appendix.sgml,v 1.1 2006/10/06 23:33:45 bruno Exp $
+
+Appendix for Copyright and License notices
+
+@Copyright@
+@Copyright@
+
+$Log: appendix.sgml,v $
+Revision 1.1  2006/10/06 23:33:45  bruno
+first draft
+
+Revision 1.3  2006/09/21 01:03:41  mjk
+more doc template changes
+
+Revision 1.2  2006/09/21 00:19:26  mjk
+*** empty log message ***
+
+Revision 1.1  2006/09/14 23:54:35  mjk
+*** empty log message ***
+
+
+-->
+
+<appendix id="rocks-copyright" xreflabel="Appendix A: Rocks Copyright">
+<title>Rocks Copyright</title>
+<para>
+<screen>
+&rockscopyright;
+</screen>
+</para>
+</appendix>
+
