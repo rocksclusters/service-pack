@@ -1,7 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 
-
-<kickstart roll="service-pack">
+<kickstart>
 
 
 <description>
@@ -11,6 +10,9 @@ Service Pack Roll. When good code goes bad.
 
 <changelog>
 $Log: service-pack-base.xml,v $
+Revision 1.2  2006/10/09 20:59:23  bruno
+tweaks
+
 Revision 1.1  2006/10/06 23:33:45  bruno
 first draft
 
