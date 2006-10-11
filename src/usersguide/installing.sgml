@@ -5,7 +5,46 @@
 
 &source_roll-installing-standard;
 
-&source_roll-installing-onthefly;
+<section id="installing-onthefly" xreflabel="On an Existing Server">
+<title>On an Existing Server</title>
+
+<para>
+The Service Pack Roll can be installed on running frontend.
+</para>
+
+<para>
+The following procedure will install the Roll and after the server reboots,
+the Roll will be fully installed and configured.
+</para>
+
+<para>
+First you'll need to install the roll installation program.
+</para>
+
+<para>
+For i386, as root, execute:
+</para>
+
+<para>
+<screen>
+# rpm -Uvh http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-4.2.1/upgrade/roll-install-4.2.1-0.i386.rpm
+# roll-install http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-4.2.1/service-pack-4.2.1.1-1.i386.disk1.iso
+</screen>
+</para>
+
+<para>
+For x86_64, execute:
+</para>
+
+<para>
+<screen>
+# rpm -Uvh http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-4.2.1/upgrade/roll-install-4.2.1-0.x86_64.rpm
+# roll-install http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-4.2.1/service-pack-4.2.1.1-1.x86_64.disk1.iso
+</screen>
+</para>
+
+
+</section>
 
 
 <section id="installing-nodes" xreflabel="Adding the Roll to Nodes">
