@@ -44,6 +44,24 @@ For x86_64, execute:
 </screen>
 </para>
 
+<para>
+If your frontend doesn't have access to the outside internet, download the 
+roll-install package and Service Pack Roll ISO image and execute:
+</para>
+
+<para>
+<screen>
+# rpm -Uvh roll-install-4.2.1-0.&lt;arch&gt;.rpm
+# roll-install service-pack-4.2.1.1-1.&lt;arch&gt;.disk1.iso
+</screen>
+</para>
+
+<para>
+Substitute <emphasis>i386</emphasis> or 
+<emphasis>x86_64</emphasis> for 
+<emphasis>&lt;arch&gt;</emphasis> based on the version of Rocks you installed.
+</para>
+
 
 </section>
 
