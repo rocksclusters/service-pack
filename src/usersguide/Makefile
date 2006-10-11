@@ -1,5 +1,5 @@
 # 
-# $Id: Makefile,v 1.1 2006/10/06 23:33:45 bruno Exp $
+# $Id: Makefile,v 1.2 2006/10/11 17:58:05 bruno Exp $
 #
 # @Copyright@
 # 
@@ -50,6 +50,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.2  2006/10/11 17:58:05  bruno
+# touch ups
+#
 # Revision 1.1  2006/10/06 23:33:45  bruno
 # first draft
 #
@@ -110,6 +113,7 @@ pdf: predoc
 	jw --backend pdf --dsl $(PWD)/rocks.dsl#print index.sgml
 
 build: html pdf
+
 
 install:: build
 	mkdir -p $(ROOT)/$(PKGROOT)/images

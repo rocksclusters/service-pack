@@ -13,12 +13,13 @@ The Service Pack Roll can be installed on running frontend.
 </para>
 
 <para>
-The following procedure will install the Roll and after the server reboots,
-the Roll will be fully installed and configured.
+The following procedure will install and configure the roll -- no reboot
+will be required.
 </para>
 
 <para>
-First you'll need to install the roll installation program.
+First you'll need to install the roll installation program, then you'll
+install the roll.
 </para>
 
 <para>
