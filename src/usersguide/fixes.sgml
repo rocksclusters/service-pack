@@ -37,6 +37,19 @@
 	</para>
 </listitem>
 
+<listitem>
+	<para>
+	Fix for the <computeroutput>/tmp/sdb</computeroutput> error dialog
+	which appears during installation.
+	</para>
+
+	<para>
+	You no longer need to specify
+	<computeroutput>nousbstorage</computeroutput> to workaround the
+	problem.
+	</para>
+</listitem>
+
 </itemizedlist>
 
 

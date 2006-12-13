@@ -1,4 +1,4 @@
-VERSION		= 4.2.1.1
+VERSION		= 4.2.1.2
 RELEASE		= 1
 COLOR		= forestgreen
 
