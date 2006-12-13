@@ -4,6 +4,7 @@
 
 	<edge from="server">
 		<to>service-pack-server</to>
+		<to>service-pack-install</to>
 	</edge>
 
 	<edge from="base">

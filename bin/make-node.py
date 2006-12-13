@@ -1,5 +1,6 @@
+#!/opt/rocks/bin/python
 #
-# $Id: Makefile,v 1.2 2006/12/13 23:17:17 bruno Exp $
+# $Id: make-node.py,v 1.1 2006/12/13 23:17:17 bruno Exp $
 #
 # @Copyright@
 # 
@@ -49,30 +50,36 @@
 # 
 # @Copyright@
 #
-# $Log: Makefile,v $
-# Revision 1.2  2006/12/13 23:17:17  bruno
+# $Log: make-node.py,v $
+# Revision 1.1  2006/12/13 23:17:17  bruno
 # add the mechanism to disable all previous service-pack rolls and enable
 # the latest one.
 #
 # this is needed when installing the service-pack roll on-the-fly and when
 # a previous version of the service-pack roll is present.
 #
-# Revision 1.1  2006/10/06 23:33:45  bruno
-# first draft
 #
 #
+import sys
 
-ROLLSROOT = ..
--include $(ROLLSROOT)/etc/Rolls.mk
-include Rolls.mk
+kickstart_file = """<?xml version="1.0" standalone="no"?>
+<kickstart>
 
-default:	roll
+<description>
+</description>
 
+<changelog>
+</changelog>
 
-pretar::
-	./bin/make-node.py $(VERSION) > nodes/service-pack-install.xml
+<post>
+echo 'update rolls set enabled = "no" where name = "service-pack" \
+	and version != "%s"' | mysql -u apache root
+echo 'update rolls set enabled = "yes" where name = "service-pack" \
+	and version = "%s"' | mysql -u apache root
+</post>
 
+</kickstart>
+"""
 
-clean::
-	rm -f nodes/service-pack-install.xml
+print kickstart_file % (sys.argv[1], sys.argv[1])
 
