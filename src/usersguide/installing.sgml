@@ -29,7 +29,9 @@ For i386, as root, execute:
 <para>
 <screen>
 # rpm -Uvh http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-4.2.1/upgrade/roll-install-4.2.1-0.i386.rpm
-# roll-install http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-4.2.1/service-pack-4.2.1.1-1.i386.disk1.iso
+# roll-install http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-4.2.1/service-pack-4.2.1.2-1.i386.disk1.iso
+# cd /home/install
+# rocks-dist dist
 </screen>
 </para>
 
@@ -40,7 +42,9 @@ For x86_64, execute:
 <para>
 <screen>
 # rpm -Uvh http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-4.2.1/upgrade/roll-install-4.2.1-0.x86_64.rpm
-# roll-install http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-4.2.1/service-pack-4.2.1.1-1.x86_64.disk1.iso
+# roll-install http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-4.2.1/service-pack-4.2.1.2-1.x86_64.disk1.iso
+# cd /home/install
+# rocks-dist dist
 </screen>
 </para>
 
@@ -52,7 +56,9 @@ roll-install package and Service Pack Roll ISO image and execute:
 <para>
 <screen>
 # rpm -Uvh roll-install-4.2.1-0.&lt;arch&gt;.rpm
-# roll-install service-pack-4.2.1.1-1.&lt;arch&gt;.disk1.iso
+# roll-install service-pack-4.2.1.2-1.&lt;arch&gt;.disk1.iso
+# cd /home/install
+# rocks-dist dist
 </screen>
 </para>
 
