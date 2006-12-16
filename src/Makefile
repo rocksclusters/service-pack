@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.1 2006/10/06 23:33:45 bruno Exp $
+# $Id: Makefile,v 1.2 2006/12/16 21:01:31 bruno Exp $
 #
 # @Copyright@
 # 
@@ -49,6 +49,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.2  2006/12/16 21:01:31  bruno
+# more goodies for the service pack roll
+#
 # Revision 1.1  2006/10/06 23:33:45  bruno
 # first draft
 #
@@ -57,12 +60,28 @@
 #
 # make sure pvfs2-config is built last
 #
-SRCDIRS	= `find . -type d -maxdepth 1 -not -name CVS -not -name .`
+PKGS		= roll-kernel-rocks-boot
+EXTRA_PKGS	= roll-base-anaconda
+SRCDIRS		= usersguide
 
 default:	rpm
 
-copyright rpm clean::
-	for i in $(SRCDIRS) ; do \
+copyright rpm clean::	$(PKGS) $(EXTRA_PKGS)
+	for i in $(PKGS) $(SRCDIRS) ; do \
 		(cd $$i; make $@) ; \
 	done
+
+
+roll-kernel-rocks-boot:
+	mkdir $@
+	(cd $@; cp -R ../../../kernel/src/rocks-boot/* .)
+
+roll-base-anaconda:
+	mkdir $@
+	(cd $@; cp -R ../../../base/src/anaconda/* .)
+	(cd $@/updates.img; make rpm)
+
+
+clean::
+	rm -rf $(PKGS) $(EXTRA_PKGS)
 

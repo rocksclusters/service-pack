@@ -1,6 +1,6 @@
 #!/opt/rocks/bin/python
 #
-# $Id: make-node.py,v 1.1 2006/12/13 23:17:17 bruno Exp $
+# $Id: make-node.py,v 1.2 2006/12/16 21:01:31 bruno Exp $
 #
 # @Copyright@
 # 
@@ -51,6 +51,9 @@
 # @Copyright@
 #
 # $Log: make-node.py,v $
+# Revision 1.2  2006/12/16 21:01:31  bruno
+# more goodies for the service pack roll
+#
 # Revision 1.1  2006/12/13 23:17:17  bruno
 # add the mechanism to disable all previous service-pack rolls and enable
 # the latest one.
@@ -73,9 +76,9 @@ kickstart_file = """<?xml version="1.0" standalone="no"?>
 
 <post>
 echo 'update rolls set enabled = "no" where name = "service-pack" \
-	and version != "%s"' | mysql -u apache root
+	and version != "%s"' | mysql -u apache cluster
 echo 'update rolls set enabled = "yes" where name = "service-pack" \
-	and version = "%s"' | mysql -u apache root
+	and version = "%s"' | mysql -u apache cluster
 </post>
 
 </kickstart>
