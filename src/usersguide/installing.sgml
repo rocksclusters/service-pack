@@ -86,7 +86,7 @@ To reinstall all your nodes, as root execute:
 
 <para>
 <screen>
-# tentakel '/boot/kickstart/cluster-kickstart'
+# tentakel '/boot/kickstart/cluster-kickstart-pxe'
 </screen>
 </para>
 
