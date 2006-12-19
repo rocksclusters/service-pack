@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.2 2006/12/16 21:01:31 bruno Exp $
+# $Id: Makefile,v 1.3 2006/12/19 22:21:50 bruno Exp $
 #
 # @Copyright@
 # 
@@ -49,6 +49,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.3  2006/12/19 22:21:50  bruno
+# get the dependencies right
+#
 # Revision 1.2  2006/12/16 21:01:31  bruno
 # more goodies for the service pack roll
 #
@@ -57,31 +60,40 @@
 #
 #
 
-#
-# make sure pvfs2-config is built last
-#
-PKGS		= roll-kernel-rocks-boot
-EXTRA_PKGS	= roll-base-anaconda
+PKGS		= roll-kernel-mini-httpd roll-kernel-rocks-boot \
+			roll-base-rocks-bittorrent roll-base-anaconda
 SRCDIRS		= usersguide
 
 default:	rpm
 
-copyright rpm clean::	$(PKGS) $(EXTRA_PKGS)
-	for i in $(PKGS) $(SRCDIRS) ; do \
+copyright rpm::	$(PKGS)
+	for i in $(SRCDIRS) ; do \
 		(cd $$i; make $@) ; \
 	done
 
+clean::
+	for i in $(SRCDIRS) ; do \
+		(cd $$i; make $@) ; \
+	done
+	rm -rf $(PKGS) $(EXTRA_PKGS)
 
-roll-kernel-rocks-boot:
+#
+# this is a bit messy, but order matters
+#
+roll-kernel-rocks-boot:	roll-kernel-mini-httpd
 	mkdir $@
-	(cd $@; cp -R ../../../kernel/src/rocks-boot/* .)
+	(cd $@; cp -R ../../../kernel/src/rocks-boot/* . ; make rpm)
 
-roll-base-anaconda:
+roll-kernel-mini-httpd:
+	mkdir $@
+	(cd $@; cp -R ../../../kernel/src/mini_httpd/* . ; make rpm)
+
+roll-base-anaconda:	roll-base-rocks-bittorrent
 	mkdir $@
 	(cd $@; cp -R ../../../base/src/anaconda/* .)
 	(cd $@/updates.img; make rpm)
 
-
-clean::
-	rm -rf $(PKGS) $(EXTRA_PKGS)
+roll-base-rocks-bittorrent:
+	mkdir $@
+	(cd $@; cp -R ../../../base/src/bittorrent/* . ; make rpm)
 
