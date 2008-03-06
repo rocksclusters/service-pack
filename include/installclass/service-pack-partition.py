@@ -1,14 +1,14 @@
-# $Id: service-pack-partition.py,v 1.2 2007/06/23 04:04:00 mjk Exp $
+# $Id: service-pack-partition.py,v 1.3 2008/03/06 23:41:57 mjk Exp $
 #
 # Manipulate RedHat installer for disk partitioning.
 #
 # @Copyright@
 # 
-# 				Rocks(tm)
+# 				Rocks(r)
 # 		         www.rocksclusters.org
-# 		        version 4.3 (Mars Hill)
+# 		            version 5.0 (V)
 # 
-# Copyright (c) 2000 - 2007 The Regents of the University of California.
+# Copyright (c) 2000 - 2008 The Regents of the University of California.
 # All rights reserved.	
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -26,7 +26,7 @@
 # 3. All advertising and press materials, printed or electronic, mentioning
 # features or use of this software must display the following acknowledgement: 
 # 
-# 	"This product includes software developed by the Rocks(tm)
+# 	"This product includes software developed by the Rocks(r)
 # 	Cluster Group at the San Diego Supercomputer Center at the
 # 	University of California, San Diego and its contributors."
 # 
@@ -56,6 +56,9 @@
 # @Copyright@
 #
 # $Log: service-pack-partition.py,v $
+# Revision 1.3  2008/03/06 23:41:57  mjk
+# copyright storm on
+#
 # Revision 1.2  2007/06/23 04:04:00  mjk
 # mars hill copyright
 #
