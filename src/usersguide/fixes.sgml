@@ -1,0 +1,57 @@
+<chapter id="fixes" xreflabel="List of Fixes">
+
+<title>Fixes Included in the Service Pack Roll</title>
+
+<itemizedlist>
+
+<listitem>
+	<para>
+	The name service (<computeroutput>named</computeroutput>) was not
+	properly reloaded after a node was added with
+	<computeroutput>insert-ethers</computeroutput>.
+	The issue is with the configuration file
+	<computeroutput>/etc/rndc.conf</computeroutput> from the 
+	<computeroutput>bind</computeroutput> package found on RHEL 4
+	update 3 and 4.
+	</para>
+
+	<para>
+	The fix is to replace the stock 
+	<computeroutput>/etc/rndc.conf</computeroutput> file with a known
+	good one.
+	</para>
+</listitem>
+
+<listitem>
+	<para>
+	On uni-processor nodes, the symbolic link to the kernel build
+	environment <computeroutput>/usr/src/linux-2.6</computeroutput>
+	was not properly set.
+	</para>
+
+	<para>
+	This is fixed by adding the configuration script 
+	<computeroutput>/etc/rc.d/rocksconfig.d/pre-10-prep-kernel-source</computeroutput>
+	which runs after the buggy configuration script
+	<computeroutput>/etc/rc.d/rocksconfig.d/pre-09-prep-kernel-source</computeroutput>.
+	</para>
+</listitem>
+
+<listitem>
+	<para>
+	Fix for the <computeroutput>/tmp/sdb</computeroutput> error dialog
+	which appears during installation.
+	</para>
+
+	<para>
+	You no longer need to specify
+	<computeroutput>nousbstorage</computeroutput> to workaround the
+	problem.
+	</para>
+</listitem>
+
+</itemizedlist>
+
+
+
+</chapter>

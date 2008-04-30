@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+
+<graph>
+
+	<edge from="server">
+		<to>service-pack-server</to>
+		<to>service-pack-install</to>
+	</edge>
+
+	<edge from="base">
+		<to>service-pack-base</to>
+	</edge>
+
+</graph>
+

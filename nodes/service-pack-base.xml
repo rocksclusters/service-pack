@@ -1,0 +1,49 @@
+<?xml version="1.0" standalone="no"?>
+
+<kickstart>
+
+
+<description>
+Service Pack Roll. When good code goes bad.
+</description>
+
+
+<changelog>
+$Log: service-pack-base.xml,v $
+Revision 1.2  2006/10/09 20:59:23  bruno
+tweaks
+
+Revision 1.1  2006/10/06 23:33:45  bruno
+first draft
+
+</changelog>
+
+
+<!-- this fix is from kernel.xml -->
+
+<post>
+<file name="/etc/rc.d/rocksconfig.d/pre-10-prep-kernel-source" perms="755">
+#!/opt/rocks/bin/python
+import os
+
+if os.uname()[2].find('smp') &lt; 0:
+	smp = 0
+else:
+	smp = 1
+
+kver = os.uname()[2].split('smp')[0]
+karch = os.uname()[-1]
+
+if smp:
+	kdir = '-'.join([kver,'smp',karch])
+else:
+	kdir = '-'.join([kver,karch])
+
+os.system('rm -f /usr/src/linux-2.6')
+os.system('ln -sf /usr/src/kernels/%s /usr/src/linux-2.6' % kdir)
+</file>
+</post>
+
+
+</kickstart> 
+
