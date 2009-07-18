@@ -11,6 +11,11 @@ Service Pack Roll. When good code goes bad.
 
 <changelog>
 $Log: service-pack-server.xml,v $
+Revision 1.5  2009/07/18 00:17:50  bruno
+push the changes made the mecurial repository back into the cvs one.
+
+this is the code for SP 5.2.1
+
 Revision 1.4  2006/12/14 02:10:49  bruno
 need the rocks-boot package for the 100 Mb fix
 
@@ -27,35 +32,145 @@ first draft
 
 
 <package>roll-service-pack-usersguide</package>
-<package>rocks-boot</package>
+
+<!-- base -->
+<package>rocks-sql</package>
+<package>rocks-command</package>
+<package>rocks-kickstart</package>
+
+<!-- area51 -->
+<eval mode="xml">
+<![CDATA[
+/opt/rocks/bin/rocks list roll area51 > /dev/null 2>&1
+if [ $? -eq 0 ]
+then
+	echo "<package>tripwire</package>"
+	echo "<package>tripwire-config</package>"
+fi
+]]>
+</eval>
+
+<!-- sge -->
+<eval mode="xml">
+<![CDATA[
+/opt/rocks/bin/rocks list roll sge > /dev/null 2>&1
+if [ $? -eq 0 ]
+then
+	echo "<package>sge-ganglia</package>"
+fi
+]]>
+</eval>
+
+<!-- xen -->
+<eval mode="xml">
+<![CDATA[
+/opt/rocks/bin/rocks list roll xen > /dev/null 2>&1
+if [ $? -eq 0 ]
+then
+	echo "<package>rocks-command-xen</package>"
+fi
+]]>
+</eval>
 
 
-<!-- this fix is from dns-server.xml -->
+<!-- from the base roll -->
+<post os='linux'>
 
-<post>
-<file name="/etc/rndc.conf" perms="0640" owner="root.named">
-options {
-	default-server  localhost;
-	default-key     "rndckey";
-};
-
-server localhost {
-	key     "rndckey";
-};
-
-include "/etc/rndc.key";
+<file name="/etc/logrotate.d/rocks">
+/var/log/auth {
+	size=100M
+	postrotate
+		/bin/kill -HUP `cat /var/run/syslogd.pid 2&gt; /dev/null` \
+			2&gt; /dev/null || true
+	endscript
+}
+/var/log/authpriv {
+	size=100M
+	postrotate
+		/bin/kill -HUP `cat /var/run/syslogd.pid 2&gt; /dev/null` \
+			2&gt; /dev/null || true
+	endscript
+}
+/var/log/daemon {
+	size=100M
+	postrotate
+		/bin/kill -HUP `cat /var/run/syslogd.pid 2&gt; /dev/null` \
+			2&gt; /dev/null || true
+	endscript
+}
+/var/log/lpr {
+	size=100M
+	postrotate
+		/bin/kill -HUP `cat /var/run/syslogd.pid 2&gt; /dev/null` \
+			2&gt; /dev/null || true
+	endscript
+}
+/var/log/mail {
+	size=100M
+	postrotate
+		/bin/kill -HUP `cat /var/run/syslogd.pid 2&gt; /dev/null` \
+			2&gt; /dev/null || true
+	endscript
+}
+/var/log/kern {
+	size=100M
+	postrotate
+		/bin/kill -HUP `cat /var/run/syslogd.pid 2&gt; /dev/null` \
+			2&gt; /dev/null || true
+	endscript
+}
+/var/log/syslog {
+	size=100M
+	postrotate
+		/bin/kill -HUP `cat /var/run/syslogd.pid 2&gt; /dev/null` \
+			2&gt; /dev/null || true
+	endscript
+}
+/var/log/user {
+	size=100M
+	postrotate
+		/bin/kill -HUP `cat /var/run/syslogd.pid 2&gt; /dev/null` \
+			2&gt; /dev/null || true
+	endscript
+}
+/var/log/local[1-9] {
+	size=10M
+	postrotate
+		/bin/kill -HUP `cat /var/run/syslogd.pid 2&gt; /dev/null` \
+			2&gt; /dev/null || true
+	endscript
+}
 </file>
 
-/opt/rocks/sbin/insert-ethers --update
 </post>
+
 
 <post>
-mkdir -p /tftpboot/pxelinux
 
-cp /boot/kickstart/default/vmlinuz /tftpboot/pxelinux/
-cp /boot/kickstart/default/initrd.img /tftpboot/pxelinux/
+<!-- CentOS Team says do this to make syslog shutup -->
+
+<file name="/etc/sysconfig/snmpd.options">
+OPTIONS="-LS4d -Lf /dev/null -p /var/run/snmpd.pid"
+</file>
+
 </post>
 
+
+<!-- need to reapply the configuration from the ganglia roll -->
+<!--
+	but the ganglia roll will append another rrds entry to fstab, so
+	let's save/restore the original fstab
+ -->
+<post>
+
+<file name="/tmp/finish-install-sp.sh" mode="700">
+cp /etc/fstab /tmp/fstab
+/opt/rocks/bin/rocks run roll ganglia | bash 2&gt; /dev/null
+cp /tmp/fstab /etc/fstab
+rm -f /tmp/fstab
+</file>
+
+</post>
 
 </kickstart> 
 

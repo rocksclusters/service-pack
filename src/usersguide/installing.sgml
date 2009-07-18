@@ -13,61 +13,45 @@ The Service Pack Roll can be installed on running frontend.
 </para>
 
 <para>
-The following procedure will install and configure the roll -- no reboot
-will be required.
+The following procedure will install and configure the roll for the frontend.
 </para>
 
 <para>
-First you'll need to install the roll installation program, then you'll
-install the roll.
-</para>
-
-<para>
-For i386, as root, execute:
+For i386, download the service pack roll:
 </para>
 
 <para>
 <screen>
-# rpm -Uvh http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-4.2.1/upgrade/roll-install-4.2.1-0.i386.rpm
-# roll-install http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-4.2.1/service-pack-4.2.1.2-1.i386.disk1.iso
-# cd /export/rocks/install
-# rocks create distro
+# wget http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-5.2/service-pack-5.2.1-1.i386.disk1.iso
 </screen>
 </para>
 
 <para>
-For x86_64, execute:
+Or for x86_64, download the service pack roll:
 </para>
 
 <para>
 <screen>
-# rpm -Uvh http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-4.2.1/upgrade/roll-install-4.2.1-0.x86_64.rpm
-# roll-install http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-4.2.1/service-pack-4.2.1.2-1.x86_64.disk1.iso
-# cd /export/rocks/install
-# rocks create distro
+# wget http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-5.2/service-pack-5.2.1-1.x86_64.disk1.iso
 </screen>
 </para>
 
 <para>
-If your frontend doesn't have access to the outside internet, download the 
-roll-install package and Service Pack Roll ISO image and execute:
+Then, as root execute:
 </para>
 
 <para>
 <screen>
-# rpm -Uvh roll-install-4.2.1-0.&lt;arch&gt;.rpm
-# roll-install service-pack-4.2.1.2-1.&lt;arch&gt;.disk1.iso
+# rocks add roll service-pack*iso
+# rocks disable roll service-pack
+# rocks enable roll service-pack version=5.2.1
 # cd /export/rocks/install
 # rocks create distro
+# rocks run roll service-pack | bash
+# sh /tmp/finish-install-sp.sh
+# init 6
 </screen>
 </para>
-
-<para>
-Substitute <emphasis>i386</emphasis> or 
-<emphasis>x86_64</emphasis> for 
-<emphasis>&lt;arch&gt;</emphasis> based on the version of Rocks you installed.
-</para>
-
 
 </section>
 
@@ -86,7 +70,7 @@ To reinstall all your nodes, as root execute:
 
 <para>
 <screen>
-# tentakel '/boot/kickstart/cluster-kickstart-pxe'
+# rocks run host '/boot/kickstart/cluster-kickstart'
 </screen>
 </para>
 

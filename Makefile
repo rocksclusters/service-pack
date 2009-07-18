@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.6 2009/05/01 19:07:22 mjk Exp $
+# $Id: Makefile,v 1.7 2009/07/18 00:17:49 bruno Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,11 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.7  2009/07/18 00:17:49  bruno
+# push the changes made the mecurial repository back into the cvs one.
+#
+# this is the code for SP 5.2.1
+#
 # Revision 1.6  2009/05/01 19:07:22  mjk
 # chimi con queso
 #
@@ -79,17 +84,8 @@
 #
 #
 
-ROLLSROOT = ..
 -include $(ROLLSROOT)/etc/Rolls.mk
 include Rolls.mk
 
 default:	roll
-
-
-pretar::
-	./bin/make-node.py $(VERSION) > nodes/service-pack-install.xml
-
-
-clean::
-	rm -f nodes/service-pack-install.xml
 

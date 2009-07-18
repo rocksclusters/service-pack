@@ -2,56 +2,150 @@
 
 <title>Fixes Included in the Service Pack Roll</title>
 
+<para>
+	Area51 Roll
+</para>
+
 <itemizedlist>
 
 <listitem>
 	<para>
-	The name service (<computeroutput>named</computeroutput>) was not
-	properly reloaded after a node was added with
-	<computeroutput>insert-ethers</computeroutput>.
-	The issue is with the configuration file
-	<computeroutput>/etc/rndc.conf</computeroutput> from the 
-	<computeroutput>bind</computeroutput> package found on RHEL 4
-	update 3 and 4.
-	</para>
-
-	<para>
-	The fix is to replace the stock 
-	<computeroutput>/etc/rndc.conf</computeroutput> file with a known
-	good one.
+	The <emphasis>tripwire</emphasis> package is now included.
 	</para>
 </listitem>
 
 <listitem>
 	<para>
-	On uni-processor nodes, the symbolic link to the kernel build
-	environment <computeroutput>/usr/src/linux-2.6</computeroutput>
-	was not properly set.
-	</para>
-
-	<para>
-	This is fixed by adding the configuration script 
-	<computeroutput>/etc/rc.d/rocksconfig.d/pre-10-prep-kernel-source</computeroutput>
-	which runs after the buggy configuration script
-	<computeroutput>/etc/rc.d/rocksconfig.d/pre-09-prep-kernel-source</computeroutput>.
+	Tripwire reports are now correctly generated.
 	</para>
 </listitem>
 
 <listitem>
 	<para>
-	Fix for the <computeroutput>/tmp/sdb</computeroutput> error dialog
-	which appears during installation.
-	</para>
-
-	<para>
-	You no longer need to specify
-	<computeroutput>nousbstorage</computeroutput> to workaround the
-	problem.
+	The tripwire <emphasis>email to</emphasis> is now correctly read
+	from the database.
 	</para>
 </listitem>
 
 </itemizedlist>
 
+
+<para>
+	Base Roll
+</para>
+
+<itemizedlist>
+
+<listitem>
+	<para>
+	Fixes the <emphasis>greceptor</emphasis> bug that causes a traceback
+	that looks like:
+	</para>
+
+<para>
+<screen>
+ greceptor warning: greceptor: got a metric with a strange type (22)
+------greceptor last traceback----
+Traceback (most recent call last):
+
+  File "/opt/rocks/lib/python2.4/site-packages/gmon/reporter.py", line 203, in run
+    metric = gmon.Gmetric.parse(msg)
+
+error: got a metric with a strange type (22)
+</screen>
+</para>
+
+</listitem>
+
+<listitem>
+	<para>
+	The <emphasis>authpriv</emphasis> entry in the logrotate configuration
+	file is fixed.
+	</para>
+</listitem>
+
+<listitem>
+	<para>
+	The <emphasis>authpriv</emphasis> entry in the logrotate configuration
+	file is fixed.
+	</para>
+</listitem>
+
+<listitem>
+	<para>
+	Fixed replace node in <emphasis>insert-ethers</emphasis>.
+	</para>
+</listitem>
+
+<listitem>
+	<para>
+	<emphasis>snmpd</emphasis> syslog messages are now greatly reduced.
+	</para>
+</listitem>
+
+<listitem>
+	<para>
+	The command <emphasis>rocks run host</emphasis> now obeys the
+	<emphasis>managed</emphasis> boolean flag.
+	</para>
+</listitem>
+
+<listitem>
+	<para>
+	Rewrite pxelinux.cfg for a host after setting the run/install action.
+	</para>
+</listitem>
+
+<listitem>
+	<para>
+	If a host has an alias set in the database, include that alias in
+	/etc/hosts.
+	</para>
+</listitem>
+
+</itemizedlist>
+
+
+<para>
+	Ganglia Roll
+</para>
+
+<itemizedlist>
+
+<listitem>
+	<para>
+	Put Rocks-defined metrics back in the roll (e.g., cluster top and
+	queue stats).
+	</para>
+</listitem>
+
+<listitem>
+	<para>
+	Backend nodes now send their metrics to the frontend with unicast
+	rather than multicast.
+	The frontend still sends multicast messages to the backend nodes
+	(in order for the frontend to collect 'metadata' from the nodes'
+	metrics).
+	</para>
+</listitem>
+
+</itemizedlist>
+
+
+<para>
+	Xen Roll
+</para>
+
+<itemizedlist>
+
+<listitem>
+	<para>
+	Fixes to support virtual compute nodes that are managed by a
+	physical frontend.
+	</para>
+</listitem>
+
+</itemizedlist>
 
 
 </chapter>
