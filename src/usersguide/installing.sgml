@@ -22,7 +22,7 @@ For i386, download the service pack roll:
 
 <para>
 <screen>
-# wget http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-5.2/service-pack-5.2.1-1.i386.disk1.iso
+# wget http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-5.2/linux/service-pack-5.2.1-1.i386.disk1.iso
 </screen>
 </para>
 
@@ -32,7 +32,7 @@ Or for x86_64, download the service pack roll:
 
 <para>
 <screen>
-# wget http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-5.2/service-pack-5.2.1-1.x86_64.disk1.iso
+# wget http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-5.2/linux/service-pack-5.2.1-1.x86_64.disk1.iso
 </screen>
 </para>
 
