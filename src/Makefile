@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.8 2009/07/18 00:17:50 bruno Exp $
+# $Id: Makefile,v 1.9 2009/08/12 23:02:46 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,10 +54,8 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
-# Revision 1.8  2009/07/18 00:17:50  bruno
-# push the changes made the mecurial repository back into the cvs one.
-#
-# this is the code for SP 5.2.1
+# Revision 1.9  2009/08/12 23:02:46  bruno
+# fixes for 5.2.2
 #
 # Revision 1.7  2009/05/01 19:07:22  mjk
 # chimi con queso
@@ -90,7 +88,7 @@ PKGS		= roll-area51-profile roll-area51-tripwire-config \
 			roll-ganglia-webfrontend-addons roll-sge-ganglia \
 			roll-xen-rocks-command
 SRCDIRS		= usersguide
-RELEASE		= 5.2.1
+RELEASE		= 5.2.2
 
 default:	rpm
 

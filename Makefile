@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.7 2009/07/18 00:17:49 bruno Exp $
+# $Id: Makefile,v 1.8 2009/08/12 23:02:45 bruno Exp $
 #
 # @Copyright@
 # 
@@ -55,10 +55,8 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
-# Revision 1.7  2009/07/18 00:17:49  bruno
-# push the changes made the mecurial repository back into the cvs one.
-#
-# this is the code for SP 5.2.1
+# Revision 1.8  2009/08/12 23:02:45  bruno
+# fixes for 5.2.2
 #
 # Revision 1.6  2009/05/01 19:07:22  mjk
 # chimi con queso

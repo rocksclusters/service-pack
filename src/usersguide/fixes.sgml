@@ -38,6 +38,26 @@
 
 <listitem>
 	<para>
+	Fixed the timestamp bug when a frontend is installed from
+	media (CD or DVD). Prior to this fix, when a frontend was installed
+	from media, all the RPMS from the rolls would have the timestamp
+	of when the frontend was installed. The RPMS should have the
+	timestamp of when they were initially built.
+	</para>
+</listitem>
+
+<listitem>
+	<para>
+	The <emphasis>membership</emphasis> attribute is now correctly set
+	for the backend nodes. Prior to this fix, the membership attribute was
+	set to 'Frontend' for all backend nodes. Now when you install a
+	compute node, the membership attribute is now correctly set
+	to 'Compute'.
+	</para>
+</listitem>
+
+<listitem>
+	<para>
 	Fixes the <emphasis>greceptor</emphasis> bug that causes a traceback
 	that looks like:
 	</para>
