@@ -10,6 +10,9 @@
 
 	<changelog>
 	$Log: service-pack-server.xml,v $
+	Revision 1.8  2010/08/12 23:14:04  mjk
+	*** empty log message ***
+	
 	Revision 1.7  2010/08/12 18:26:06  mjk
 	*** empty log message ***
 	
@@ -17,6 +20,7 @@
 
 
 	<package>roll-service-pack-usersguide</package>
+	<package>rocks-pylib</package>
 
 </kickstart> 
 

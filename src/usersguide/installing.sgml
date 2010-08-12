@@ -43,12 +43,11 @@ Then, as root execute:
 <para>
 <screen>
 # rocks add roll service-pack*iso
-# rocks disable roll service-pack
 # rocks enable roll service-pack
 # cd /export/rocks/install
 # rocks create distro
 # rocks run roll service-pack | bash
-# sh /tmp/finish-install-sp.sh
+# rocks create distro
 # init 6
 </screen>
 </para>
