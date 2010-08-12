@@ -10,5 +10,9 @@
 		<to>service-pack-base</to>
 	</edge>
 
+	<edge from="client">
+		<to>service-pack-client</to>
+	</edge>
+
 </graph>
 

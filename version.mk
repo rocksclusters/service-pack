@@ -1,5 +1,5 @@
 ROLLNAME	= service-pack
-VERSION		= 5.2.2
+VERSION		= 5.3.1
 RELEASE		= 1
 COLOR		= forestgreen
 
