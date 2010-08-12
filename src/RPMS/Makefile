@@ -1,5 +1,5 @@
-# 
-# $Id: Makefile,v 1.7 2010/08/12 21:43:40 mjk Exp $
+# --------------------------------------------------- -*- Makefile -*- --
+# $Id: Makefile,v 1.1 2010/08/12 21:43:40 mjk Exp $
 #
 # @Copyright@
 # 
@@ -55,97 +55,19 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
-# Revision 1.7  2010/08/12 21:43:40  mjk
+# Revision 1.1  2010/08/12 21:43:40  mjk
 # 5.3.1 - fixes corrupted package downloads
 #
-# Revision 1.6  2009/05/01 19:07:22  mjk
-# chimi con queso
-#
-# Revision 1.5  2008/10/18 00:56:13  mjk
-# copyright 5.1
-#
-# Revision 1.4  2008/03/06 23:41:57  mjk
-# copyright storm on
-#
-# Revision 1.3  2007/06/23 04:04:00  mjk
-# mars hill copyright
-#
-# Revision 1.2  2006/10/11 17:58:05  bruno
-# touch ups
-#
-# Revision 1.1  2006/10/06 23:33:45  bruno
-# first draft
-#
-# Revision 1.13  2006/09/19 18:45:24  mjk
-# fix roll manual name
-#
-# Revision 1.12  2006/09/14 23:54:35  mjk
-# *** empty log message ***
-#
-# Revision 1.11  2006/09/11 22:46:54  mjk
-# monkey face copyright
-#
-# Revision 1.10  2006/09/11 22:23:14  bruno
-# no more jpg images
-#
-# Revision 1.9  2006/08/10 00:09:22  mjk
-# 4.2 copyright
-#
-# Revision 1.8  2005/10/18 20:20:30  bruno
-# automatically set the copyright date
-#
-# Revision 1.7  2005/10/12 18:08:24  mjk
-# final copyright for 4.1
-#
-# Revision 1.6  2005/09/16 01:02:04  mjk
-# updated copyright
-#
-# Revision 1.5  2005/05/24 21:21:38  mjk
-# update copyright, release is not any closer
-#
-# Revision 1.4  2005/04/05 20:28:22  nadya
-# move logic of creating rocks.dsl, rocks.css and stylesheet-images to Rules.mk
-# Add target predoc in order to make docs in a local directory
-#
-# Revision 1.3  2004/10/21 01:31:52  mjk
-# *** empty log message ***
-#
-# Revision 1.2  2004/10/21 01:21:13  mjk
-# fix version
-#
-# Revision 1.1  2004/05/20 23:21:28  bruno
-# added documentation
-#
-#
 
-PKGROOT         = /var/www/html/roll-documentation/$(ROLL)/$(VERSION)
-REDHAT.ROOT     = $(PWD)/../../
+REDHAT.ROOT	= $(PWD)/../../
+MAKE.iscontrib	= 1
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
 
-default: $(NAME).spec ../$(NAME)-$(VERSION).tar.gz
+rpm::	build
+	-cp *.$(ARCH).rpm $(REDHAT.RPMS)/$(ARCH)/
+	-cp *.noarch.rpm $(REDHAT.RPMS)/noarch/
 
-html: predoc
-	jw --backend html --dsl $(PWD)/rocks.dsl#html index.sgml 
-
-pdf: predoc
-	jw --backend pdf --dsl $(PWD)/rocks.dsl#print index.sgml
-
-build: html pdf
-
-
-install:: build
-	mkdir -p $(ROOT)/$(PKGROOT)/images
-	mkdir -p $(ROOT)/$(PKGROOT)/stylesheet-images
-	install -ma+r index.pdf 	$(ROOT)/$(PKGROOT)/$(NAME).pdf
-	install -ma+r *.html    	$(ROOT)/$(PKGROOT)/
-	install -ma+r images/*.png	$(ROOT)/$(PKGROOT)/images/
-	install -ma+r stylesheet-images/{*.gif,*.png} \
-		$(ROOT)/$(PKGROOT)/stylesheet-images/
-	install -ma+r rocks.css $(ROOT)/$(PKGROOT)/
-
-clean::
-	rm -f *.html
-	rm -f index.pdf
-
-
+build:
+	mkdir -p $(REDHAT.RPMS)/$(ARCH)/
+	mkdir -p $(REDHAT.RPMS)/noarch

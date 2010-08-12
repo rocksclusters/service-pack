@@ -1,5 +1,6 @@
 ROLL			= service-pack
 NAME    		= roll-$(ROLL)-usersguide
+VERSION			= 5.3.1
 RELEASE 		= 0
 
 SUMMARY_COMPATIBLE	= $(VERSION)

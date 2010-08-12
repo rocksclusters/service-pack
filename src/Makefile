@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.9 2009/08/12 23:02:46 bruno Exp $
+# $Id: Makefile,v 1.10 2010/08/12 21:43:40 mjk Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.10  2010/08/12 21:43:40  mjk
+# 5.3.1 - fixes corrupted package downloads
+#
 # Revision 1.9  2009/08/12 23:02:46  bruno
 # fixes for 5.2.2
 #
@@ -80,132 +83,11 @@
 #
 #
 
-PKGS		= roll-area51-profile roll-area51-tripwire-config \
-			roll-area51-tripwire roll-base-profile\
-			roll-base-command roll-base-sql roll-base-kickstart \
-			roll-ganglia-ganglia \
-			roll-ganglia-monitor-core roll-ganglia-rocks-command \
-			roll-ganglia-webfrontend-addons roll-sge-ganglia \
-			roll-xen-rocks-command
-SRCDIRS		= usersguide
-RELEASE		= 5.2.2
+SRCDIRS	= RPMS usersguide
 
 default:	rpm
 
-copyright rpm::	$(PKGS)
+copyright rpm clean::
 	for i in $(SRCDIRS) ; do \
 		(cd $$i; make $@) ; \
 	done
-
-clean::
-	for i in $(SRCDIRS) ; do \
-		(cd $$i; make $@) ; \
-	done
-	rm -rf $(PKGS) $(EXTRA_PKGS)
-
-#
-# this is a bit messy, but order matters
-#
-roll-area51-profile:
-	mkdir -p ../RPMS/noarch
-	(								\
-		cd ../../area51 ;					\
-		make ROLLNAME=area51 RELEASE=$(RELEASE) profile 	\
-	)
-	cp ../../area51/RPMS/noarch/roll-area51-kickstart*rpm ../RPMS/noarch/
-
-roll-area51-tripwire-config:
-	mkdir $@
-	(								\
-		cd $@ ;							\
-		cp -R ../../../area51/src/tripwire-config/* . ;		\
-		make RELEASE=$(RELEASE) rpm				\
-	)
-
-roll-area51-tripwire:
-	mkdir $@
-	(								\
-		cd $@ ;							\
-		cp -R ../../../area51/src/tripwire/* . ;		\
-		make RELEASE=$(RELEASE) rpm				\
-	)
-
-roll-base-profile:
-	mkdir -p ../RPMS/noarch
-	(								\
-		cd ../../base ;						\
-		make ROLLNAME=base RELEASE=$(RELEASE) profile ;		\
-	)
-	cp ../../base/RPMS/noarch/roll-base-kickstart*rpm ../RPMS/noarch/
-
-roll-base-command:
-	mkdir $@
-	(								\
-		cd $@ ;							\
-		cp -R ../../../base/src/command/* . ;			\
-		make RELEASE=$(RELEASE) rpm				\
-	)
-
-roll-base-sql:
-	mkdir $@
-	(								\
-		cd $@ ;							\
-		cp -R ../../../base/src/sql/* . ;			\
-		make RELEASE=$(RELEASE) rpm				\
-	)
-
-roll-base-kickstart:
-	mkdir $@
-	(								\
-		cd $@ ;							\
-		cp -R ../../../base/src/kickstart/* . ;			\
-		make RELEASE=$(RELEASE) rpm				\
-	)
-
-roll-ganglia-ganglia:
-	mkdir $@
-	(								\
-		cd $@ ;							\
-		cp -R ../../../ganglia/src/ganglia/* . ;		\
-		make RELEASE=$(RELEASE) rpm				\
-	)
-
-roll-ganglia-monitor-core:
-	mkdir $@
-	(								\
-		cd $@ ;							\
-		cp -R ../../../ganglia/src/monitor-core/* . ;		\
-		make RELEASE=$(RELEASE) rpm				\
-	)
-roll-ganglia-rocks-command:
-	mkdir $@
-	(								\
-		cd $@ ;							\
-		cp -R ../../../ganglia/src/rocks-command/* . ;		\
-		make RELEASE=$(RELEASE) rpm				\
-	)
-
-roll-ganglia-webfrontend-addons:
-	mkdir $@
-	(								\
-		cd $@ ;							\
-		cp -R ../../../ganglia/src/webfrontend-addons/* . ;	\
-		make RELEASE=$(RELEASE) rpm				\
-	)
-
-roll-sge-ganglia:
-	mkdir $@
-	(								\
-		cd $@ ;							\
-		cp -R ../../../sge/src/ganglia/* . ;			\
-		make RELEASE=$(RELEASE) rpm				\
-	)
-
-roll-xen-rocks-command:
-	mkdir $@
-	(								\
-		cd $@ ;							\
-		cp -R ../../../xen/src/rocks-command/* . ;		\
-		make RELEASE=$(RELEASE) rpm				\
-	)
-
