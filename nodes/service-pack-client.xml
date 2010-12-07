@@ -8,14 +8,13 @@
 
 	<changelog>
 	$Log: service-pack-client.xml,v $
+	Revision 1.2  2010/12/07 23:52:15  bruno
+	the start of SP 5.4.1
+	
 	Revision 1.1  2010/08/12 18:26:06  mjk
 	*** empty log message ***
 	
 	</changelog>
-
-<post arg="--nochroot">
-cp /tmp/rocks-bt.log /mnt/sysimage/tmp
-</post>
 
 </kickstart> 
 

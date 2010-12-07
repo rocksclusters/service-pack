@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.11 2010/09/07 23:53:24 bruno Exp $
+# $Id: Makefile,v 1.12 2010/12/07 23:52:16 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.12  2010/12/07 23:52:16  bruno
+# the start of SP 5.4.1
+#
 # Revision 1.11  2010/09/07 23:53:24  bruno
 # star power for gb
 #
@@ -86,7 +89,8 @@
 #
 #
 
-SRCDIRS	= RPMS usersguide
+SRCDIRS	= `find . -type d -maxdepth 1 -not -name CVS -not -name .`
+
 
 default:	rpm
 

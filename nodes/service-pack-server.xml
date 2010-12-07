@@ -10,6 +10,9 @@
 
 	<changelog>
 	$Log: service-pack-server.xml,v $
+	Revision 1.9  2010/12/07 23:52:15  bruno
+	the start of SP 5.4.1
+	
 	Revision 1.8  2010/08/12 23:14:04  mjk
 	*** empty log message ***
 	
@@ -20,7 +23,10 @@
 
 
 	<package>roll-service-pack-usersguide</package>
-	<package>rocks-pylib</package>
+	<package>rocks-sql/package>
+	<package>rocks-411-master/package>
+	<package>rocks-tracker/package>
+	<package>rocks-command/package>
 
 </kickstart> 
 

@@ -8,10 +8,17 @@
 
 	<changelog>
 	$Log: service-pack-base.xml,v $
+	Revision 1.6  2010/12/07 23:52:15  bruno
+	the start of SP 5.4.1
+	
 	Revision 1.5  2010/08/12 18:26:06  mjk
 	*** empty log message ***
 	
 	</changelog>
+
+<post>
+/sbin/ldconfig
+</post>
 
 </kickstart> 
 

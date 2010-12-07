@@ -1,6 +1,6 @@
 ROLL			= service-pack
 NAME    		= roll-$(ROLL)-usersguide
-VERSION			= 5.3.1
+VERSION			= 5.4.1
 RELEASE 		= 0
 
 RPM.ARCH		= noarch

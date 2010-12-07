@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.9 2010/09/07 23:53:24 bruno Exp $
+# $Id: Makefile,v 1.10 2010/12/07 23:52:15 bruno Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.10  2010/12/07 23:52:15  bruno
+# the start of SP 5.4.1
+#
 # Revision 1.9  2010/09/07 23:53:24  bruno
 # star power for gb
 #
@@ -90,3 +93,5 @@ include Rolls.mk
 
 default:	roll
 
+clean::
+	rm -f _arch

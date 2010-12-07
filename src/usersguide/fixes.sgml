@@ -10,7 +10,47 @@
 
 <listitem>
 	<para>
-	 Adds MD5 checksum to packages to detect corrupted downloads.
+	In specific configurations, when you run "rocks sync users", you
+	could see the error message:
+	</para>
+
+	<para>
+	<computeroutput>
+	411-alert: error while loading shared libraries: librocks.so: cannot
+	open shared object file: No such file or directory
+	</computeroutput>
+	</para>
+
+	<para>
+	This occurs when 'ldconfig' is not run during the post installation.
+	The fix is to ensure ldconfig is run at the end of an installation
+	for all nodes.
+	</para>
+</listitem>
+
+<listitem>
+	<para>
+	Fixes to the Rocks Command Line and 411-master program to fully support
+	channel bonding on the frontend.
+	</para>
+</listitem>
+
+</itemizedlist>
+
+
+<para>
+	Kernel Roll
+</para>
+
+<itemizedlist>
+
+<listitem>
+	<para>
+	There was a code in rocks-tracker that wasn't properly reconstructing
+	the 'peers' circular list when that list was expanded.
+	This could cause several MD5 checksum errors on installing nodes
+	because an installing node would ask for a peer and the tracker would
+	send stale peer data to the installing node.
 	</para>
 </listitem>
 
