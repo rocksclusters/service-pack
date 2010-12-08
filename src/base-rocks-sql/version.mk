@@ -1,2 +1,2 @@
 NAME = rocks-sql
-RELEASE = 1
+RELEASE = 5.4.1
