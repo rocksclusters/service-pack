@@ -35,6 +35,21 @@
 	</para>
 </listitem>
 
+<listitem>
+	<para>
+	When only one alias was specified for a host (with the command:
+	<computeroutput>rocks add host alias</computeroutput>), the entry
+	in <computeroutput>/var/named/private.domain</computeroutput> would
+	have the format similar to
+	<computeroutput>compute-1-0 CNAME ('c1-0',)</computeroutput>.
+	</para>
+
+	<para>
+	The fix to the Rocks Command Line now properly outputs
+	<computeroutput>compute-1-0 CNAME c1-0</computeroutput>.
+	</para>
+</listitem>
+
 </itemizedlist>
 
 
