@@ -53,6 +53,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.3  2010/12/08 00:28:57  bruno
+# one more tweak
+#
 # Revision 1.2  2010/12/08 00:12:31  bruno
 # get the right files
 #
@@ -132,7 +135,7 @@ SCRIPTS = 411put
 PKGROOT = /opt/rocks
 
 REDHAT.ROOT     = $(CURDIR)/../../
-ROCKSROOT       = ../devel/devel
+
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
 
