@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.2 2010/12/08 00:13:24 bruno Exp $
+# $Id: __init__.py,v 1.3 2010/12/08 18:09:28 bruno Exp $
 # 
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
+# Revision 1.3  2010/12/08 18:09:28  bruno
+# make sure aliases are written as 'c0-1' and not '(c0-1,)'
+#
 # Revision 1.2  2010/12/08 00:13:24  bruno
 # get the right commands
 #
@@ -201,7 +204,7 @@ class Command(rocks.commands.report.command):
 				'networks nt where nt.node=a.node and '	+\
 				'nt.ip="%s"' % (ip))
 
-			for alias in self.db.fetchall():
+			for alias, in self.db.fetchall():
 				s += '%s CNAME %s\n' % (record, alias)
 
 		return s
