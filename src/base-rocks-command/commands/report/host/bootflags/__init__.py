@@ -1,5 +1,5 @@
 #
-# $Id: __init__.py,v 1.1 2010/12/07 23:52:27 bruno Exp $
+# $Id: __init__.py,v 1.2 2010/12/08 00:13:23 bruno Exp $
 #
 # @Copyright@
 # 
@@ -55,8 +55,8 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
-# Revision 1.1  2010/12/07 23:52:27  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:13:23  bruno
+# get the right commands
 #
 # Revision 1.6  2010/09/07 23:52:59  bruno
 # star power for gb

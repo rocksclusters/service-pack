@@ -54,8 +54,8 @@
 # @Copyright@
 #
 # $Log: rocks.py,v $
-# Revision 1.1  2010/12/07 23:52:16  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:13:14  bruno
+# get the right commands
 #
 # Revision 1.26  2010/09/07 23:52:49  bruno
 # star power for gb

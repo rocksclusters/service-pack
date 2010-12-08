@@ -1,4 +1,4 @@
-# $Id: plugin_appliance.py,v 1.1 2010/12/07 23:52:19 bruno Exp $
+# $Id: plugin_appliance.py,v 1.2 2010/12/08 00:13:17 bruno Exp $
 # 
 # @Copyright@
 # 
@@ -54,8 +54,8 @@
 # @Copyright@
 #
 # $Log: plugin_appliance.py,v $
-# Revision 1.1  2010/12/07 23:52:19  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:13:17  bruno
+# get the right commands
 #
 # Revision 1.5  2010/09/07 23:52:52  bruno
 # star power for gb

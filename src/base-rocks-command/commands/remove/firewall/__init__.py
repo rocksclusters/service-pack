@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.1 2010/12/07 23:52:25 bruno Exp $
+# $Id: __init__.py,v 1.2 2010/12/08 00:13:22 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,8 +54,11 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
-# Revision 1.1  2010/12/07 23:52:25  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:13:22  bruno
+# get the right commands
+#
+# Revision 1.5  2010/11/19 16:15:17  bruno
+# fix to remove a firewall rule with 'all' as its 'network' or 'output-network'
 #
 # Revision 1.4  2010/09/07 23:52:57  bruno
 # star power for gb
@@ -91,25 +94,33 @@ class command(rocks.commands.remove.command):
 			self.abort('protocol required')
 
 		if network:
-			rows = self.db.execute("""select id from subnets where
-				name = '%s'""" % network)
+			if network == 'all':
+				inid = '0'
+			else:
+				rows = self.db.execute("""select id from
+					subnets where name = '%s'""" % network)
 
-			if rows == 0:
-				self.abort('network "%s" not in database' %
-					network)
+				if rows == 0:
+					self.abort('network "%s" not in ' +
+						'database' % network)
 
-			inid, = self.db.fetchone()
+				inid, = self.db.fetchone()
 		else:
 			inid = 'NULL'
 
 		if outnetwork:
-			rows = self.db.execute("""select id from subnets where
-				name = '%s'""" % outnetwork)
+			if outnetwork == 'all':
+				outid = '0'
+			else:
+				rows = self.db.execute("""select id from
+					subnets where name = '%s'""" %
+					outnetwork)
 
-			if rows == 0:
-				self.abort('output-network "%s" not in database' % network)
+				if rows == 0:
+					self.abort('output-network "%s" not ' +
+						'in database' % network)
 
-			outid, = self.db.fetchone()
+				outid, = self.db.fetchone()
 		else:
 			outid = 'NULL'
 

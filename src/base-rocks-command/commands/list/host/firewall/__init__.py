@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.1 2010/12/07 23:52:22 bruno Exp $
+# $Id: __init__.py,v 1.2 2010/12/08 00:13:19 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,8 +54,12 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
-# Revision 1.1  2010/12/07 23:52:22  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:13:19  bruno
+# get the right commands
+#
+# Revision 1.7  2010/11/23 20:55:57  bruno
+# we need to list rules that are exactly the same 'except' for their 'flags'
+# field.
 #
 # Revision 1.6  2010/09/07 23:52:55  bruno
 # star power for gb
@@ -104,8 +108,8 @@ class Command(rocks.commands.NetworkArgumentProcessor,
 		else:
 			output_network = self.getNetworkName(outid)
 
-		key = '%s-%s-%s-%s-%s-%s' % \
-			(inid, outid, service, protocol, chain, action)
+		key = '%s-%s-%s-%s-%s-%s-%s' % \
+			(inid, outid, service, protocol, chain, action, flags)
 		rules[key] = (service, protocol, chain, action, network,
 			output_network, flags, comment, source)
 

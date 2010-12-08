@@ -1,5 +1,5 @@
 #
-# $Id: __init__.py,v 1.1 2010/12/07 23:52:27 bruno Exp $
+# $Id: __init__.py,v 1.2 2010/12/08 00:13:23 bruno Exp $
 #
 # @Copyright@
 # 
@@ -55,8 +55,13 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
-# Revision 1.1  2010/12/07 23:52:27  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:13:23  bruno
+# get the right commands
+#
+# Revision 1.18  2010/11/19 23:56:00  bruno
+# convert dhcp configuration to output XML
+#
+# lookup the private interface name and write it to /etc/sysconfig/dhcpd
 #
 # Revision 1.17  2010/09/07 23:52:59  bruno
 # star power for gb
@@ -201,15 +206,8 @@ class Command(rocks.commands.HostArgumentProcessor,
 		return
 		
 
-	def run(self, params, args):
-		if len(args) > 1:
-			self.abort('cannot supply more than one host name')
-		if len(args) == 0:
-			args = [ os.uname()[1] ]
-
-		hosts = self.getHostnames(args)
-
-		self.beginOutput()
+	def writeDhcpDotConf(self, hosts):
+		self.addOutput('', '<file name="/etc/dhcpd.conf">')
 
 		dn = self.db.getHostAttr('localhost',
 			'Kickstart_PrivateDNSDomain')
@@ -312,5 +310,46 @@ class Command(rocks.commands.HostArgumentProcessor,
 		self.addOutput('', '\t}')
 		self.addOutput('', '}')
 
+		self.addOutput('', '</file>')
+		return
+
+
+	def writeDhcpSysconfig(self):
+		self.addOutput('', '<file name="/etc/sysconfig/dhcpd">')
+
+		fe_name = self.db.getHostname('localhost')
+
+		rows = self.db.execute("""select device from networks,subnets
+			where networks.node = (select id from nodes where
+			name = '%s') and
+			subnets.name = "private" and
+			networks.subnet = subnets.id and
+			networks.ip is not NULL and
+			(networks.vlanid is NULL or
+			networks.vlanid = 0)""" % (fe_name))
+
+		if rows == 1:
+			device, = self.db.fetchone()
+		else:
+			device = 'eth0'
+
+		self.addOutput('', 'DHCPDARGS="%s"' % device)
+
+		self.addOutput('', '</file>')
+		
+		return
+
+
+	def run(self, params, args):
+		if len(args) > 1:
+			self.abort('cannot supply more than one host name')
+		if len(args) == 0:
+			args = [ os.uname()[1] ]
+
+		hosts = self.getHostnames(args)
+
+		self.beginOutput()
+		self.writeDhcpDotConf(hosts)
+		self.writeDhcpSysconfig()
 		self.endOutput(padChar='')
 

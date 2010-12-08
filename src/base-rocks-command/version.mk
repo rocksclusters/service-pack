@@ -1,2 +1,2 @@
 NAME = rocks-command
-RELEASE = 5.4.1
+RELEASE = 1

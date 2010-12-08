@@ -1,5 +1,5 @@
 # --------------------------------------------------- -*- Makefile -*- --
-# $Id: Makefile,v 1.1 2010/12/07 23:52:16 bruno Exp $
+# $Id: Makefile,v 1.2 2010/12/08 00:13:14 bruno Exp $
 #
 # @Copyright@
 # 
@@ -55,8 +55,8 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
-# Revision 1.1  2010/12/07 23:52:16  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:13:14  bruno
+# get the right commands
 #
 # Revision 1.21  2010/09/07 23:52:49  bruno
 # star power for gb
@@ -161,9 +161,8 @@
 
 SCRIPTS     	= rocks 
 PKGROOT		= /opt/rocks
-
-REDHAT.ROOT	= $(CURDIR)/../../
-
+REDHAT.ROOT     = $(CURDIR)/../../
+ROCKSROOT       = ../devel/devel
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
 

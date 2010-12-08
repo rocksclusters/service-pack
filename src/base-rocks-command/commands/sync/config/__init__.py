@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.1 2010/12/07 23:52:31 bruno Exp $
+# $Id: __init__.py,v 1.2 2010/12/08 00:13:27 bruno Exp $
 # 
 # @Copyright@
 # 
@@ -54,8 +54,13 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
-# Revision 1.1  2010/12/07 23:52:31  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:13:27  bruno
+# get the right commands
+#
+# Revision 1.8  2010/11/19 23:56:00  bruno
+# convert dhcp configuration to output XML
+#
+# lookup the private interface name and write it to /etc/sysconfig/dhcpd
 #
 # Revision 1.7  2010/09/07 23:53:03  bruno
 # star power for gb
@@ -106,6 +111,12 @@ class Command(rocks.commands.sync.command):
 		# rocks sync config).
 		#
 		if not os.path.exists('/var/lock/insert-ethers'):
+
+			#
+			# run the plugins 
+			#
+			self.runPlugins()
+
 			cmd = '/opt/rocks/sbin/insert-ethers --update'
 			for line in os.popen(cmd).readlines():
 				self.addText(line)

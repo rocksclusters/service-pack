@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.1 2010/12/07 23:52:27 bruno Exp $
+# $Id: __init__.py,v 1.2 2010/12/08 00:13:24 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,8 +54,8 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
-# Revision 1.1  2010/12/07 23:52:27  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:13:24  bruno
+# get the right commands
 #
 # Revision 1.5  2010/10/06 21:49:47  phil
 # If a user puts in 0.0.0.0 destination without a 0.0.0.0 netmask, then we

@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.1 2010/12/07 23:52:26 bruno Exp $
+# $Id: __init__.py,v 1.2 2010/12/08 00:13:23 bruno Exp $
 #
 # This file was authored by Brandon Davidson from the University of Oregon.
 # The Rocks Developers thank Brandon for his contribution.
@@ -57,8 +57,8 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
-# Revision 1.1  2010/12/07 23:52:26  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:13:23  bruno
+# get the right commands
 #
 # Revision 1.8  2010/09/07 23:52:58  bruno
 # star power for gb

@@ -1,6 +1,6 @@
 #@PYTHON@
 
-# $Id: __init__.py,v 1.1 2010/12/07 23:52:30 bruno Exp $
+# $Id: __init__.py,v 1.2 2010/12/08 00:13:26 bruno Exp $
 
 # @Copyright@
 # 

@@ -1,4 +1,4 @@
-# $Id: plugin_dns.py,v 1.1 2010/12/07 23:52:31 bruno Exp $
+# $Id: plugin_dns.py,v 1.2 2010/12/08 00:13:27 bruno Exp $
 # 
 # @Copyright@
 # 
@@ -54,8 +54,8 @@
 # @Copyright@
 #
 # $Log: plugin_dns.py,v $
-# Revision 1.1  2010/12/07 23:52:31  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:13:27  bruno
+# get the right commands
 #
 # Revision 1.19  2010/09/07 23:53:03  bruno
 # star power for gb

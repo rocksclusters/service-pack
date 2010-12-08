@@ -1,4 +1,4 @@
-# $Id: plugin_physical_host.py,v 1.1 2010/12/07 23:52:29 bruno Exp $
+# $Id: plugin_physical_host.py,v 1.2 2010/12/08 00:13:26 bruno Exp $
 # 
 # @Copyright@
 # 
@@ -54,8 +54,8 @@
 # @Copyright@
 #
 # $Log: plugin_physical_host.py,v $
-# Revision 1.1  2010/12/07 23:52:29  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:13:26  bruno
+# get the right commands
 #
 # Revision 1.3  2010/09/07 23:53:01  bruno
 # star power for gb

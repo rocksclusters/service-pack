@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.1 2010/12/07 23:52:19 bruno Exp $
+# $Id: __init__.py,v 1.2 2010/12/08 00:13:16 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,8 +54,8 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
-# Revision 1.1  2010/12/07 23:52:19  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:13:16  bruno
+# get the right commands
 #
 # Revision 1.32  2010/09/14 16:55:41  bruno
 # give meta rolls the same version number as the hosting/building system

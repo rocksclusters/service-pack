@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.1 2010/12/07 23:52:29 bruno Exp $
+# $Id: __init__.py,v 1.2 2010/12/08 00:13:25 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,8 +54,8 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
-# Revision 1.1  2010/12/07 23:52:29  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:13:25  bruno
+# get the right commands
 #
 # Revision 1.1  2010/10/04 18:30:38  bruno
 # add the ability to change the name in the nodes table
