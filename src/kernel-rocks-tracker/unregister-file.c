@@ -1,12 +1,12 @@
 /*
- * $Id: unregister-file.c,v 1.1 2010/12/07 23:52:32 bruno Exp $
+ * $Id: unregister-file.c,v 1.2 2010/12/08 00:15:32 bruno Exp $
  *
  * @COPYRIGHT@
  * @COPYRIGHT@
  *
  * $Log: unregister-file.c,v $
- * Revision 1.1  2010/12/07 23:52:32  bruno
- * the start of SP 5.4.1
+ * Revision 1.2  2010/12/08 00:15:32  bruno
+ * get the right files
  *
  * Revision 1.3  2010/10/12 19:39:21  bruno
  * allow a client to 'unregister' another client. this is useful when a client

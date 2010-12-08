@@ -1,12 +1,12 @@
 /*
- * $Id: stop-server.c,v 1.1 2010/12/07 23:52:32 bruno Exp $
+ * $Id: stop-server.c,v 1.2 2010/12/08 00:15:32 bruno Exp $
  *
  * @COPYRIGHT@
  * @COPYRIGHT@
  *
  * $Log: stop-server.c,v $
- * Revision 1.1  2010/12/07 23:52:32  bruno
- * the start of SP 5.4.1
+ * Revision 1.2  2010/12/08 00:15:32  bruno
+ * get the right files
  *
  * Revision 1.3  2010/03/15 23:05:56  bruno
  * tweaks

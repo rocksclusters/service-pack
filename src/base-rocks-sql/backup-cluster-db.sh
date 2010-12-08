@@ -57,8 +57,8 @@
 # @Copyright@
 #
 # $Log: backup-cluster-db.sh,v $
-# Revision 1.1  2010/12/07 23:52:31  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:14:38  bruno
+# get the right files
 #
 # Revision 1.13  2010/09/07 23:53:09  bruno
 # star power for gb

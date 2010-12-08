@@ -1,12 +1,12 @@
 #
-# $Id: Makefile,v 1.1 2010/12/07 23:52:31 bruno Exp $
+# $Id: Makefile,v 1.2 2010/12/08 00:15:32 bruno Exp $
 #
 # @COPYRIGHT@
 # @COPYRIGHT@
 #
 # $Log: Makefile,v $
-# Revision 1.1  2010/12/07 23:52:31  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:15:32  bruno
+# get the right files
 #
 # Revision 1.16  2010/10/12 19:37:21  bruno
 # turn mysql back on. the tracker server will consult the database to find

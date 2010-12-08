@@ -1,4 +1,4 @@
-# $Id: auto_master.py,v 1.1 2010/12/07 23:52:16 bruno Exp $
+# $Id: auto_master.py,v 1.2 2010/12/08 00:12:31 bruno Exp $
 
 # @Copyright@
 # 
@@ -54,8 +54,8 @@
 # @Copyright@
 
 # $Log: auto_master.py,v $
-# Revision 1.1  2010/12/07 23:52:16  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:12:31  bruno
+# get the right files
 #
 # Revision 1.4  2010/09/07 23:52:48  bruno
 # star power for gb

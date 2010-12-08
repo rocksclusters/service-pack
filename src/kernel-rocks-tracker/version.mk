@@ -1,4 +1,4 @@
 NAME		= rocks-tracker
-RELEASE		= 5.4.1
+RELEASE		= 1
 PKGROOT		= /opt/rocks
 

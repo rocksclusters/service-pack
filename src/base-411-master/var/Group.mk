@@ -55,8 +55,8 @@
 # @Copyright@
 # 
 # $Log: Group.mk,v $
-# Revision 1.1  2010/12/07 23:52:16  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:12:31  bruno
+# get the right files
 #
 # Revision 1.5  2010/09/07 23:52:48  bruno
 # star power for gb

@@ -6,7 +6,7 @@
 #
 # Requires Python 2.1 or better
 #
-# $Id: 411put.py,v 1.1 2010/12/07 23:52:16 bruno Exp $
+# $Id: 411put.py,v 1.2 2010/12/08 00:12:31 bruno Exp $
 #
 # @Copyright@
 # 
@@ -62,8 +62,18 @@
 # @Copyright@
 #
 # $Log: 411put.py,v $
-# Revision 1.1  2010/12/07 23:52:16  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:12:31  bruno
+# get the right files
+#
+# Revision 1.11  2010/11/20 20:57:49  bruno
+# on a 'rocks sync config', we need to update /opt/rocks/etc/four11putrc
+# with the private address and CIDR netmask to tell 411put where the local
+# network is. without this assistance, 411put assumes eth0 is the private
+# network and if the frontend has a bonded interface for the private network,
+# then 411put will not know where to send its alerts.
+#
+# Revision 1.10  2010/10/20 21:26:08  mjk
+# Call out to 411-alert to send RPC, no more ganglia protocol
 #
 # Revision 1.9  2010/10/18 23:53:03  bruno
 # 411put no longer sends out 411 alerts
@@ -232,7 +242,7 @@ import socket
 from rocks.util import mkdir
 from urllib import quote
 
-# Multiple inheritance with a bias towards tocks.Application.
+# Multiple inheritance with a bias towards rocks.Application.
 class App(rocks.net.Application, rocks.service411.Service411):
 	"Can encrypt and publish a 411 file."
 
@@ -279,7 +289,7 @@ absolute path (after any chroots) will be maintained on clients."""
 	def parseArgs(self):
 		"""Point ourselves at the rocksrc config file, so 
 		we dont need our own."""
-		rocks.net.Application.parseArgs(self, rcbase='rocks')
+		rocks.net.Application.parseArgs(self, rcbase='four11put')
 
 		# This is more complicated than I originally thought.
 		# Always use the private cluster address for 411 HTTP alerts.
@@ -436,11 +446,29 @@ absolute path (after any chroots) will be maintained on clients."""
 		print "411 Wrote: %s/%s" % (dir411, filename411)
 		print "Size: %s/%s bytes (encrypted/plain)" % \
 			(len(msg), len(plaintext))
+		if self.doAlert:
+			self.sendAlert(filename411)
 
-		print
-		if self.doSee:
-			print msg
 
+	def sendAlert(self, filename411):
+		"""Send an RPC Broadcast packet alerting clients to an updated
+		411 file. Message was in Ganglia 2.5.x format but now uses RPC.
+		Cryptographic signature covers message in format: "filename seqnum".
+		"""
+
+		urldir = self.urldir
+		if self.group:
+			urldir = quote("%s/%s" % (self.urldir, self.group))
+
+		alert = "http://%s/%s/%s" % (self.ip, urldir, filename411)
+		sig   = self.sign(alert)
+
+		# replace ganglia channel with the rocks rpc channel
+
+		os.spawnl(os.P_NOWAIT, '/opt/rocks/sbin/411-alert',
+			 '411-alert', alert, sig)
+
+		
 
 #
 # My Main

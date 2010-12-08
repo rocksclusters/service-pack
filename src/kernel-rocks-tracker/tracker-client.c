@@ -1,12 +1,15 @@
 /*
- * $Id: tracker-client.c,v 1.1 2010/12/07 23:52:32 bruno Exp $
+ * $Id: tracker-client.c,v 1.2 2010/12/08 00:15:32 bruno Exp $
  *
  * @COPYRIGHT@
  * @COPYRIGHT@
  *
  * $Log: tracker-client.c,v $
- * Revision 1.1  2010/12/07 23:52:32  bruno
- * the start of SP 5.4.1
+ * Revision 1.2  2010/12/08 00:15:32  bruno
+ * get the right files
+ *
+ * Revision 1.18  2010/11/05 18:20:29  bruno
+ * support to verify the MD5 checksums for all the packages that we track
  *
  * Revision 1.17  2010/10/12 19:39:21  bruno
  * allow a client to 'unregister' another client. this is useful when a client
@@ -418,31 +421,19 @@ downloadfile(CURL *curlhandle, char *url, char *range)
 	 * if this is not a range request, then do an MD5 checksum of the file
 	 */
 	if (range == NULL) {
-		char	*ptr = rindex(url, '/');
-		char	*filename;
+		retval = check_md5(url);
 
-		if (ptr) {
-			if (*ptr == '/') {
-				filename = ptr + 1;
-			} else {
-				filename = ptr;
-			}
-
-			retval = check_md5(filename);
-
-			/*
-			 * check_md5 returns:
-			 *
-			 *	0 - when the filename is not found in the
-			 *	packages.md5 file
-			 *
-			 *	1 - checksum passed
-			 *
-			 *	-1 - checksum failed
-			 */
-			if (retval == -1) {
-				return(-1);
-			}
+		/*
+		 * check_md5 returns:
+		 *
+		 *	0 - the filename is not found in the packages.md5 file
+		 *
+		 *	1 - checksum passed
+		 *
+		 *	-1 - checksum failed
+		 */
+		if (retval == -1) {
+			return(-1);
 		}
 	}
 

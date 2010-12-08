@@ -1,4 +1,4 @@
-# $Id: linux.mk,v 1.1 2010/12/07 23:52:31 bruno Exp $
+# $Id: linux.mk,v 1.2 2010/12/08 00:14:38 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,8 +54,8 @@
 # @Copyright@
 #
 # $Log: linux.mk,v $
-# Revision 1.1  2010/12/07 23:52:31  bruno
-# the start of SP 5.4.1
+# Revision 1.2  2010/12/08 00:14:38  bruno
+# get the right files
 #
 # Revision 1.10  2010/09/07 23:53:09  bruno
 # star power for gb
