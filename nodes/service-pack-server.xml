@@ -10,6 +10,9 @@
 
 	<changelog>
 	$Log: service-pack-server.xml,v $
+	Revision 1.10  2010/12/09 00:28:54  bruno
+	closer
+	
 	Revision 1.9  2010/12/07 23:52:15  bruno
 	the start of SP 5.4.1
 	
@@ -23,10 +26,14 @@
 
 
 	<package>roll-service-pack-usersguide</package>
-	<package>rocks-sql/package>
-	<package>rocks-411-master/package>
-	<package>rocks-tracker/package>
-	<package>rocks-command/package>
+	<package>rocks-sql</package>
+	<package>rocks-411-master</package>
+	<package>rocks-tracker</package>
+	<package>rocks-command</package>
+
+<post>
+/opt/rocks/bin/rocks sync config
+</post>
 
 </kickstart> 
 

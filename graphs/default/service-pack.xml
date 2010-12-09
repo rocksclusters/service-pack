@@ -3,7 +3,7 @@
 <graph>
 
 	<order head="TAIL">
-		<tail>service-pack-base</to>
+		<tail>service-pack-base</tail>
 	</order>
 
 
