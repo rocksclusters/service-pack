@@ -47,6 +47,7 @@ Then, as root execute:
 # cd /export/rocks/install
 # rocks create distro
 # rocks run roll service-pack | bash
+# init 6
 </screen>
 </para>
 
