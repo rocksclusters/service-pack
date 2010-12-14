@@ -10,6 +10,9 @@
 
 	<changelog>
 	$Log: service-pack-server.xml,v $
+	Revision 1.12  2010/12/14 22:54:56  bruno
+	need to install rocks-boot on frontend for the on-the-fly install
+	
 	Revision 1.11  2010/12/14 19:33:24  bruno
 	add the new tracker client into initrd inside the rocks-boot RPMS.
 	
@@ -36,6 +39,7 @@
 	<package>rocks-411-master</package>
 	<package>rocks-tracker</package>
 	<package>rocks-command</package>
+	<package>rocks-boot</package>
 
 <post>
 /opt/rocks/bin/rocks sync config
