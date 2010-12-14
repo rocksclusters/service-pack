@@ -10,6 +10,12 @@
 
 	<changelog>
 	$Log: service-pack-server.xml,v $
+	Revision 1.11  2010/12/14 19:33:24  bruno
+	add the new tracker client into initrd inside the rocks-boot RPMS.
+	
+	also, make it easy to change the version number of the service pack roll and
+	have all the RPMs 'release' number match the version number of the roll
+	
 	Revision 1.10  2010/12/09 00:28:54  bruno
 	closer
 	
@@ -33,6 +39,13 @@
 
 <post>
 /opt/rocks/bin/rocks sync config
+</post>
+
+<post>
+mkdir -p /tftpboot/pxelinux
+
+cp /boot/kickstart/default/vmlinuz* /tftpboot/pxelinux/
+cp /boot/kickstart/default/initrd.img* /tftpboot/pxelinux/
 </post>
 
 </kickstart> 

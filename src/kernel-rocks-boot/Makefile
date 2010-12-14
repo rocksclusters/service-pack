@@ -1,4 +1,5 @@
-# $Id: Makefile,v 1.13 2010/12/14 19:33:24 bruno Exp $
+#
+# $Id: Makefile,v 1.1 2010/12/14 19:33:24 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,59 +55,44 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
-# Revision 1.13  2010/12/14 19:33:24  bruno
+# Revision 1.1  2010/12/14 19:33:24  bruno
 # add the new tracker client into initrd inside the rocks-boot RPMS.
 #
 # also, make it easy to change the version number of the service pack roll and
 # have all the RPMs 'release' number match the version number of the roll
 #
-# Revision 1.12  2010/12/07 23:52:16  bruno
-# the start of SP 5.4.1
-#
-# Revision 1.11  2010/09/07 23:53:24  bruno
-# star power for gb
-#
-# Revision 1.10  2010/08/12 21:43:40  mjk
-# 5.3.1 - fixes corrupted package downloads
-#
-# Revision 1.9  2009/08/12 23:02:46  bruno
-# fixes for 5.2.2
-#
-# Revision 1.7  2009/05/01 19:07:22  mjk
-# chimi con queso
-#
-# Revision 1.6  2008/10/18 00:56:13  mjk
-# copyright 5.1
-#
-# Revision 1.5  2008/03/06 23:41:57  mjk
-# copyright storm on
-#
-# Revision 1.4  2007/06/23 04:04:00  mjk
-# mars hill copyright
-#
-# Revision 1.3  2006/12/19 22:21:50  bruno
-# get the dependencies right
-#
-# Revision 1.2  2006/12/16 21:01:31  bruno
-# more goodies for the service pack roll
-#
-# Revision 1.1  2006/10/06 23:33:45  bruno
-# first draft
-#
 #
 
-#
-# make sure kernel-rocks-boot is built last
-#
-SRCDIRS	= `find . -type d -maxdepth 1 \
-	-not -name CVS \
-	-not -name kernel-rocks-boot \
-	-not -name .` kernel-rocks-boot
+ARCH=`uname -i`
+REDHAT.ROOT	= ../../../../../../../../
 
+include ../../sp-version.mk
 
-default:	rpm
+rpm:
+	if [ "$(USER)" == "root" ] ; \
+	then \
+		echo ;\
+		echo -e "\tERROR : to build this package, you need to set" ;\
+		echo -e "\tthe USER environmental variable to user other" ;\
+		echo -e "\tthan 'root'." ;\
+		echo -e "\tThis is because a CVS checkout is performed" ;\
+		echo -e "\tduring the building of this package." ;\
+		echo ;\
+		exit -1 ;\
+	fi
 
-copyright rpm clean::
-	for i in $(SRCDIRS) ; do \
-		(cd $$i; make $@) ; \
-	done
+	cvs -d $(USER)@fyp.rocksclusters.org:/home/cvs/CVSROOT checkout	\
+		-r ROCKS_5_4 rocks/src/roll/kernel/src/rocks-boot
+	cd patch-files && find . -type f | grep -v CVS | cpio -pduv ../
+	(cd rocks/src/roll/kernel/src/rocks-boot ; 			\
+		mkdir -p ../../RPMS/$(ARCH) ;\
+		cp $(REDHAT.ROOT)/RPMS/$(ARCH)/rocks-tracker*rpm \
+			../../RPMS/$(ARCH)/ ;\
+		make SP_VERSION=$(SP_VERSION) clean rpm ;\
+		pwd ; \
+		cp ../../RPMS/$(ARCH)/*rpm $(REDHAT.ROOT)/RPMS/$(ARCH)/ ;\
+	)
+
+clean::
+	rm -rf rocks
+

@@ -1,5 +1,7 @@
+include sp-version.mk
+
 ROLLNAME	= service-pack
-VERSION		= 5.4.1
+VERSION		= $(SP_VERSION)
 RELEASE		= 1
 COLOR		= forestgreen
 

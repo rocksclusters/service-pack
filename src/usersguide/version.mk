@@ -1,6 +1,8 @@
+include ../../sp-version.mk
+
 ROLL			= service-pack
 NAME    		= roll-$(ROLL)-usersguide
-VERSION			= 5.4.1
+VERSION			= $(SP_VERSION)
 RELEASE 		= 0
 
 RPM.ARCH		= noarch

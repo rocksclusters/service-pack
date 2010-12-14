@@ -1,2 +1,4 @@
-NAME = rocks-command
-RELEASE = 5.4.1
+include ../../sp-version.mk
+
+NAME	= rocks-command
+RELEASE	= $(SP_VERSION)

@@ -1,2 +1,4 @@
-NAME = rocks-sql
-RELEASE = 5.4.1
+include ../../sp-version.mk
+
+NAME	= rocks-sql
+RELEASE	= $(SP_VERSION)
