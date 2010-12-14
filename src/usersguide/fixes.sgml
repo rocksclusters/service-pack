@@ -69,6 +69,21 @@
 	</para>
 </listitem>
 
+<listitem>
+	<para>
+	In the case where one had a 64-bit frontend and 32-bit compute nodes,
+	the messages exchanged between the tracker-server and the
+	tracker-clients on installing nodes would be misaligned and installing
+	nodes were incapable of finding (and thus, incapaable of downloading)
+	their packages.
+	</para>
+
+	<para>
+	All tracker messages are now properly aligned between 32-bit and 64-bit
+	machines.
+	</para>
+</listitem>
+
 </itemizedlist>
 
 
