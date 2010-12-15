@@ -50,6 +50,18 @@
 	</para>
 </listitem>
 
+<listitem>
+	<para>
+	Clients were unable to use the Rocks Command Line.
+	This was because a file in /etc/ld.so.conf.d was not installed on
+	the clients that allowed mysql client code to find its libraries.
+	</para>
+
+	<para>
+	Clients can now run Rocks Command Line commands.
+	</para>
+</listitem>
+
 </itemizedlist>
 
 
