@@ -8,6 +8,9 @@
 
 	<changelog>
 	$Log: service-pack-base.xml,v $
+	Revision 1.7  2011/01/03 20:00:30  bruno
+	make sure the ganglia-pylib RPM gets installed on all nodes
+	
 	Revision 1.6  2010/12/07 23:52:15  bruno
 	the start of SP 5.4.1
 	
@@ -15,6 +18,8 @@
 	*** empty log message ***
 	
 	</changelog>
+
+	<package>ganglia-pylib</package>
 
 <post>
 /sbin/ldconfig
