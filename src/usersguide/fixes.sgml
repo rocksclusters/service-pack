@@ -64,6 +64,18 @@
 
 <listitem>
 	<para>
+	The ability to build a "login appliance" was only available when the
+	SGE Roll was supplied.
+	</para>
+
+	<para>
+	The login appliance configuration logic has been moved into the Base
+	Roll, so now one can build login appliances on any Rocks clusters.
+	</para>
+</listitem>
+
+<listitem>
+	<para>
 	Memory leak fixed for gmond.
 	</para>
 </listitem>

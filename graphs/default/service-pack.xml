@@ -9,6 +9,7 @@
 
 	<edge from="server">
 		<to>service-pack-server</to>
+		<to>login-server</to>
 	</edge>
 
 	<edge from="base">
@@ -18,6 +19,7 @@
 	<edge from="client">
 		<to>service-pack-client</to>
 	</edge>
+
 
 </graph>
 
