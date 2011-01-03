@@ -62,6 +62,12 @@
 	</para>
 </listitem>
 
+<listitem>
+	<para>
+	Memory leak fixed for gmond.
+	</para>
+</listitem>
+
 </itemizedlist>
 
 
