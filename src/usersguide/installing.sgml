@@ -17,27 +17,37 @@ The following procedure will install and configure the roll for the frontend.
 </para>
 
 <para>
-For i386, download the service pack roll:
+For i386, download the Service Pack Roll:
 </para>
 
 <para>
 <screen>
-# wget http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-5.4/linux/service-pack-5.4.1-1.i386.disk1.iso
+# wget http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-5.4/linux/service-pack-5.4.2-1.i386.disk1.iso
 </screen>
 </para>
 
 <para>
-Or for x86_64, download the service pack roll:
+Or for x86_64, download the Service Pack Roll:
 </para>
 
 <para>
 <screen>
-# wget http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-5.4/linux/service-pack-5.4.1-1.x86_64.disk1.iso
+# wget http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-5.4/linux/service-pack-5.4.2-1.x86_64.disk1.iso
 </screen>
 </para>
 
 <para>
-Then, as root execute:
+Then, as root, make sure to remove any old Service Pack Rolls:
+</para>
+
+<para>
+<screen>
+# rocks remove roll service-pack
+</screen>
+</para>
+
+<para>
+Now apply the new Service Pack Roll:
 </para>
 
 <para>
