@@ -52,6 +52,7 @@ Now apply the new Service Pack Roll:
 
 <para>
 <screen>
+# rocks set host attr localhost roll_install_on_the_fly true shadow=yes
 # rocks add roll service-pack*iso
 # rocks enable roll service-pack
 # cd /export/rocks/install

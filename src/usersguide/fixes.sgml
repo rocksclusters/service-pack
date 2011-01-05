@@ -80,6 +80,46 @@
 	</para>
 </listitem>
 
+<listitem>
+	<para>
+	Properly report disk partitions into the database for software RAID
+	file systems.
+	</para>
+
+	<para>
+	Prior to this fix, software RAID file systems on client nodes would
+	be reformatted on subsequent installations.
+	</para>
+</listitem>
+
+<listitem>
+	<para>
+	Increase installation speeds for clients with software RAID file
+	systems.
+	</para>
+
+	<para>
+	Prior to this fix, if one of the partitions is a software RAID and if
+	the raid is in a "dirty" state, mdadm will try to 'resync' the disks
+	to ensure all the data is protected. On a running system, this is a
+	great thing to do. On an installing system, it slows the install down
+	considerably.
+	</para>
+
+	<para>
+	We didn't find a way to disable the 'resync' action for mdadm, but we
+	can extremely throttle back the top rebuild speed by executing:
+	</para>
+
+<para>
+<screen>
+echo 1 > /proc/sys/dev/raid/speed_limit_min
+echo 2 > /proc/sys/dev/raid/speed_limit_max
+</screen>
+</para>
+
+</listitem>
+
 </itemizedlist>
 
 
