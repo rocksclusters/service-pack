@@ -62,6 +62,51 @@ Now apply the new Service Pack Roll:
 </screen>
 </para>
 
+<warning>
+<para>
+When you execute "rocks run roll service-pack | bash" and if
+you already have the SGE roll installed, you will see the following output:
+</para>
+
+<para>
+<screen>
+error - membership "Login" already exists
+{appliance} [graph=string] [membership=string] [node=string] [os=string] [public=bool]
+error - firewall rule already exists
+{appliance} [action=string] [chain=string] [network=string] [output-network=string] [protocol=string] [service=string]
+error - firewall rule already exists
+{appliance} [action=string] [chain=string] [network=string] [output-network=string] [protocol=string] [service=string]
+error - firewall rule already exists
+{appliance} [action=string] [chain=string] [network=string] [output-network=string] [protocol=string] [service=string]
+error - firewall rule already exists
+{appliance} [action=string] [chain=string] [network=string] [output-network=string] [protocol=string] [service=string]
+error - firewall rule already exists
+{appliance} [action=string] [chain=string] [network=string] [output-network=string] [protocol=string] [service=string]
+error - firewall rule already exists
+{appliance} [action=string] [chain=string] [network=string] [output-network=string] [protocol=string] [service=string]
+error - firewall rule already exists
+{appliance} [action=string] [chain=string] [network=string] [output-network=string] [protocol=string] [service=string]
+error - firewall rule already exists
+{appliance} [action=string] [chain=string] [network=string] [output-network=string] [protocol=string] [service=string]
+</screen>
+</para>
+
+<para>
+The above error messages can be safely ignored.
+</para>
+
+<para>
+The configuration graph inside the SGE roll contains the links that properly
+configures the frontend to install "login appliances".
+To say it a different way, if you didn't install the SGE roll, then you
+wouldn't be able to install login appliances (and you should be able to
+install login appliances without the SGE roll).
+This is one of the bugs that service pack roll fixes -- if the frontend already
+has the ability to install login appliances, then when the service pack is
+applied, you will see the above error messages.
+</para>
+</warning>
+
 </section>
 
 
