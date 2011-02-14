@@ -1,10 +1,17 @@
 <!--
-$Id: index.sgml,v 1.1 2006/10/06 23:33:45 bruno Exp $
+$Id: index.sgml,v 1.2 2011/02/14 22:14:17 mjk Exp $
 
 @Copyright@
 @Copyright@
 
 $Log: index.sgml,v $
+Revision 1.2  2011/02/14 22:14:17  mjk
+- Build Env
+  - ROLLNAME defaults to ROLL
+  - Fixes for docbook
+- All userguides build again
+- All userguides are now NOARCH rpms
+
 Revision 1.1  2006/10/06 23:33:45  bruno
 first draft
 
@@ -18,7 +25,7 @@ first draft
 <book>
 <bookinfo>
 
-	<title> Service Pack Roll: Users Guide </title>
+	<title> &roll-service-pack; Users Guide </title>
 
 	<subtitle>
 		<inlinemediaobject>
@@ -28,11 +35,11 @@ first draft
 		</inlinemediaobject>
 	</subtitle>
 
-        <edition>Version &document_version;</edition>
-        <pubdate>&document_pubdate;</pubdate>
+        <edition>&document-version;</edition>
+        <pubdate>&document-pubdate;</pubdate>
         <copyright id="copyright" xreflabel="copyright">
-                <year>&document_year;</year>
-                <holder>&document_copyright;</holder>    
+                <year>&document-year;</year>
+                <holder>&document-copyright;</holder>    
         </copyright>
 
         <releaseinfo>
@@ -41,17 +48,17 @@ first draft
 
         <legalnotice>
                 <para>
-                This document is subject to the Rocks License 
+                This document is subject to the &rocks; License 
                 (see <xref linkend="rocks-copyright">).
                 </para>
         </legalnotice>
 
 </bookinfo>
 
-&source_preface;
-&source_roll-overview;
-&source_installing;
-&source_fixes;
-&source_appendix;
+&source-preface;
+&source-roll-overview;
+&source-installing;
+&source-fixes;
+&source-appendix;
 
 </book>
