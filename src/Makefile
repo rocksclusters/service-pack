@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.18 2013/02/01 01:44:45 clem Exp $
+# $Id: Makefile,v 1.19 2013/02/01 02:10:40 clem Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.19  2013/02/01 02:10:40  clem
+# now with the kickstart rpms
+#
 # Revision 1.18  2013/02/01 01:44:45  clem
 # Now this Makefile really does some compilation
 #
@@ -113,10 +116,10 @@
 #
 #
 
-INCLUDEPACKAGE = base/src/command/ base/src/devel base/src/developersguide base/src/foundation-git base/src/foundation-mysql base/src/foundation-python-extras base/src/usersguide ganglia/src/rocks-command ganglia/src/usersguide kvm/src/rocks-command kvm/src/usersguide perl/src/cpan perl/src/cpan-support
+INCLUDEPACKAGE = base/src/command/ base/src/devel base/src/developersguide base/src/foundation-git base/src/foundation-mysql base/src/foundation-python-extras base/src/usersguide ganglia/src/rocks-command ganglia/src/usersguide kvm/src/rocks-command kvm/src/usersguide
+#TODO update perl module perl/src/cpan perl/src/cpan-support
 
-
-PROFILE = condor-profile base-profile ganglia-profile
+PROFILE = condor base ganglia
 
 BASEPATH = ../../
 
@@ -124,6 +127,16 @@ BASEPATH = ../../
 default:	rpm
 
 copyright rpm clean::
+	mkdir -p ../RPMS/noarch;
+	mkdir -p ../RPMS/$(ARCH);
+	# first we build the kickstart rpms
+	for i in $(PROFILE); do \
+		cd ../../$$i; \
+		make preroll || exit 2; \
+		make profile || exit 2; \
+		cp RPMS/noarch/roll-$$i-kickstart*rpm ../service-pack/RPMS/noarch/ || exit 2; \
+		cd -;\
+	done
 	# sed s/$$(ROLL)/*/ is to remove the $$(ROLL) from the documentation 
 	# rpm name
 	for i in $(INCLUDEPACKAGE) ; do \
