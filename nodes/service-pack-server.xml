@@ -9,33 +9,6 @@
 
 
 	<changelog>
-	$Log: service-pack-server.xml,v $
-	Revision 1.13  2011/01/05 19:00:53  bruno
-	Properly report disk partitions into the database for software RAID file
-	systems.
-	
-	Increase installation speeds for clients with software RAID file systems.
-	
-	Revision 1.12  2010/12/14 22:54:56  bruno
-	need to install rocks-boot on frontend for the on-the-fly install
-	
-	Revision 1.11  2010/12/14 19:33:24  bruno
-	add the new tracker client into initrd inside the rocks-boot RPMS.
-	
-	also, make it easy to change the version number of the service pack roll and
-	have all the RPMs 'release' number match the version number of the roll
-	
-	Revision 1.10  2010/12/09 00:28:54  bruno
-	closer
-	
-	Revision 1.9  2010/12/07 23:52:15  bruno
-	the start of SP 5.4.1
-	
-	Revision 1.8  2010/08/12 23:14:04  mjk
-	*** empty log message ***
-	
-	Revision 1.7  2010/08/12 18:26:06  mjk
-	*** empty log message ***
 	
 	</changelog>
 
@@ -50,68 +23,14 @@
 
 <post cond="roll_install_on_the_fly">
 
-mkdir -p /tftpboot/pxelinux
-
-cp /boot/kickstart/default/vmlinuz* /tftpboot/pxelinux/
-cp /boot/kickstart/default/initrd.img* /tftpboot/pxelinux/
-
-<!-- BEGIN : copied from login-server.xml -->
-
-/opt/rocks/bin/rocks add appliance login membership=Login node=login
-
-/opt/rocks/bin/rocks set appliance attr login submit_host true
-/opt/rocks/bin/rocks set appliance attr login exec_host false
-
-<!--
-	set the login node's primary network to be the public network. this
-	network will be used to generate the hostname for the machine.
--->
-/opt/rocks/bin/rocks set appliance attr login primary_net public
-
+#TODO remove entry in the /etc/ld.conf
+#TODO update kickstart rpms
 </post>
 
 
 <post>
 
 <!-- define the login appliance specific firewall rules -->
-
-<![CDATA[
-
-/opt/rocks/bin/rocks add appliance firewall login chain=INPUT \
-	flags="-m state --state NEW --source &Kickstart_PublicNetwork;/&Kickstart_PublicNetmask;" \
-	protocol=tcp service=https action=ACCEPT network=public
-
-/opt/rocks/bin/rocks add appliance firewall login chain=INPUT \
-	flags="-m state --state NEW --source &Kickstart_PublicNetwork;/&Kickstart_PublicNetmask;" \
-	protocol=tcp service=www action=ACCEPT network=public
-
-]]>
-
-/opt/rocks/bin/rocks add appliance firewall login network=public \
-	output-network=private service="all" protocol="all" action="ACCEPT" \
-	chain="FORWARD" flags="-m state --state RELATED,ESTABLISHED"
-
-/opt/rocks/bin/rocks add appliance firewall login network=private \
-	service="all" protocol="all" action="ACCEPT" chain="FORWARD"
-
-/opt/rocks/bin/rocks add appliance firewall login output-network=public \
-	service="nat" protocol="all" action="MASQUERADE" chain="POSTROUTING"
-
-/opt/rocks/bin/rocks add appliance firewall login network=all service="8649" \
-	protocol="udp" action="REJECT" chain="INPUT" \
-	comment="block ganglia traffic from non-private interfaces"
-
-/opt/rocks/bin/rocks add appliance firewall login network=all service="3306" \
-	protocol="udp" action="REJECT" chain="INPUT" \
-	comment="block mysql traffic from non-private interfaces"
-
-/opt/rocks/bin/rocks add appliance firewall login network=all service="40000" \
-	protocol="udp" action="REJECT" chain="INPUT" \
-	comment="block foundation mysql traffic from non-private interfaces"
-
-<!-- END : copied from login-server.xml -->
-
-/opt/rocks/bin/rocks sync config
 
 </post>
 
