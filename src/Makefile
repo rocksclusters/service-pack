@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.16 2012/11/27 00:49:12 phil Exp $
+# $Id: Makefile,v 1.17 2013/02/01 00:45:57 clem Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.17  2013/02/01 00:45:57  clem
+# First take at a Makefile which compile rpm directly from other rolls
+#
 # Revision 1.16  2012/11/27 00:49:12  phil
 # Copyright Storm for Emerald Boa
 #
@@ -105,18 +108,30 @@
 #
 #
 
-#
-# make sure kernel-rocks-boot is built last
-#
-SRCDIRS	= `find . -type d -maxdepth 1 \
-	-not -name CVS \
-	-not -name kernel-rocks-boot \
-	-not -name .` kernel-rocks-boot
+INCLUDEPACKAGE = base/src/command/ base/src/devel base/src/developersguide base/src/foundation-git base/src/foundation-mysql base/src/foundation-python-extras base/src/usersguide ganglia/src/rocks-command ganglia/src/usersguide kvm/src/rocks-command kvm/src/usersguide perl/src/cpan perl/src/cpan-support
+
+
+PROFILE = condor-profile base-profile ganglia-profile
+
+BASEPATH = ../../
 
 
 default:	rpm
 
 copyright rpm clean::
-	for i in $(SRCDIRS) ; do \
-		(cd $$i; make $@) ; \
+	# sed s/$$(ROLL)/*/ is to remove the $$(ROLL) from the documentation 
+	# rpm name
+	for i in $(INCLUDEPACKAGE) ; do \
+		echo Recreating roll $$i in $(BASEPATH)$$i; \
+		cd $(BASEPATH)$$i; \
+		echo $(MAKE) $@ || exit 2 ; \
+		PkgName=`grep ^NAME version.mk | awk '{print $$3}'|sed 's/$$(ROLL)/*/'`; \
+		if [ "$$PkgName" ] ; then \
+			echo cp ../../RPMS/*/$$PkgName*rpm ../../../service-pack/RPMS/ || exit 2; \
+		fi; \
+		cd -; \
 	done
+	#special case for the opt-perl packages
+	
+
+
