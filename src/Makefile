@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.17 2013/02/01 00:45:57 clem Exp $
+# $Id: Makefile,v 1.18 2013/02/01 01:44:45 clem Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,11 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.18  2013/02/01 01:44:45  clem
+# Now this Makefile really does some compilation
+#
+# before it was just a test script
+#
 # Revision 1.17  2013/02/01 00:45:57  clem
 # First take at a Makefile which compile rpm directly from other rolls
 #
@@ -122,16 +127,16 @@ copyright rpm clean::
 	# sed s/$$(ROLL)/*/ is to remove the $$(ROLL) from the documentation 
 	# rpm name
 	for i in $(INCLUDEPACKAGE) ; do \
-		echo Recreating roll $$i in $(BASEPATH)$$i; \
 		cd $(BASEPATH)$$i; \
-		echo $(MAKE) $@ || exit 2 ; \
+		$(MAKE) $@ || exit 2 ; \
 		PkgName=`grep ^NAME version.mk | awk '{print $$3}'|sed 's/$$(ROLL)/*/'`; \
 		if [ "$$PkgName" ] ; then \
-			echo cp ../../RPMS/*/$$PkgName*rpm ../../../service-pack/RPMS/ || exit 2; \
+			cp ../../RPMS/*/$$PkgName*rpm ../../../service-pack/RPMS/$(ARCH) || exit 2; \
 		fi; \
 		cd -; \
 	done
-	#special case for the opt-perl packages
+	#special case for the perl cpan-support packages
+	cp ../../perl/RPMS/*/opt-perl-*.rpm ../../RPMS/$(ARCH) || exit 2;
 	
 
 
