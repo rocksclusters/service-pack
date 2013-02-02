@@ -1,5 +1,4 @@
-#
-# $Id: Makefile,v 1.14 2013/02/02 07:22:18 clem Exp $
+# $Id: buildprofile.sh,v 1.1 2013/02/02 07:22:18 clem Exp $
 #
 # @Copyright@
 # 
@@ -55,63 +54,26 @@
 # 
 # @Copyright@
 #
-# $Log: Makefile,v $
-# Revision 1.14  2013/02/02 07:22:18  clem
-# now it properly compiles all the required packages
-#
-# Revision 1.13  2012/11/27 00:49:12  phil
-# Copyright Storm for Emerald Boa
-#
-# Revision 1.12  2012/05/06 05:49:20  phil
-# Copyright Storm for Mamba
-#
-# Revision 1.11  2011/07/23 02:31:17  phil
-# Viper Copyright
-#
-# Revision 1.10  2010/12/07 23:52:15  bruno
-# the start of SP 5.4.1
-#
-# Revision 1.9  2010/09/07 23:53:24  bruno
-# star power for gb
-#
-# Revision 1.8  2009/08/12 23:02:45  bruno
-# fixes for 5.2.2
-#
-# Revision 1.6  2009/05/01 19:07:22  mjk
-# chimi con queso
-#
-# Revision 1.5  2008/10/18 00:56:13  mjk
-# copyright 5.1
-#
-# Revision 1.4  2008/03/06 23:41:57  mjk
-# copyright storm on
-#
-# Revision 1.3  2007/06/23 04:04:00  mjk
-# mars hill copyright
-#
-# Revision 1.2  2006/12/13 23:17:17  bruno
-# add the mechanism to disable all previous service-pack rolls and enable
-# the latest one.
-#
-# this is needed when installing the service-pack roll on-the-fly and when
-# a previous version of the service-pack roll is present.
-#
-# Revision 1.1  2006/10/06 23:33:45  bruno
-# first draft
-#
 #
 
-PROFILES = condor base ganglia
+#ResetVariable = __PYTHON_MK="" __ROCKS_VERSION_COMMON_MK="" __RELEASE_MK="" __RULES_MK="" __ROLLS_MK="" __RULES_LINUX_CENTOS_MK="" __RULES_LINUX_MK="" __RULES_MK=""
 
-roll::
-	for i in $(PROFILES); do\
-		bash buildprofile.sh $$i||exit2;\
-	done
+mkdir -p ../RPMS/noarch;
+mkdir -p ../RPMS/$ARCH;
 
--include $(ROLLSROOT)/etc/Rolls.mk
-include Rolls.mk
+# first we build the kickstart rpms
+
+if [ ! "$1" ]; then 
+	exit 2;
+fi
+
+profile=$1
+
+export ROLLNAME="" VERSION="" RELEASE="" COLOR=""
+
+cd ../$profile; 
+make preroll profile || exit 2;
+cp RPMS/noarch/roll-$profile-kickstart*rpm ../service-pack/RPMS/noarch/ || exit 2; 
+cd -
 
 
-
-clean::
-	rm -f _arch
