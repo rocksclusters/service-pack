@@ -13,24 +13,26 @@
 	</changelog>
 
 
-	<package>roll-service-pack-usersguide</package>
-	<package>rocks-sql</package>
-	<package>rocks-411-master</package>
-	<package>rocks-tracker</package>
-	<package>rocks-command</package>
-	<package>rocks-boot</package>
-
 
 <post cond="roll_install_on_the_fly">
 
-#TODO remove entry in the /etc/ld.conf
-#TODO update kickstart rpms
+
 </post>
 
 
 <post>
 
-<!-- define the login appliance specific firewall rules -->
+<!-- 
+#TODO remove entry in the /etc/ld.conf
+rm /etc/ld.so.conf.d/foundation-mysql.conf
+sed 'remove' 
+-/opt/nmi/lib
+-/usr/lib64/qt-3.1/lib
+-/usr/lib64/mysql
+-/usr/X11R6/lib64
+#TODO fix grub timeout on FE
+#TODO check for update kickstart rpms
+-->
 
 </post>
 

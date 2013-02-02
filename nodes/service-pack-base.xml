@@ -8,6 +8,11 @@
 
 	<changelog>
 	$Log: service-pack-base.xml,v $
+	Revision 1.8  2013/02/02 02:30:34  clem
+	emptying the node.xml for the moment
+	
+	I need to install a system and see what happen
+	
 	Revision 1.7  2011/01/03 20:00:30  bruno
 	make sure the ganglia-pylib RPM gets installed on all nodes
 	
@@ -19,11 +24,6 @@
 	
 	</changelog>
 
-	<package>ganglia-pylib</package>
-
-<post>
-/sbin/ldconfig
-</post>
 
 </kickstart> 
 
