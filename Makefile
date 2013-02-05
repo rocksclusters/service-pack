@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.14 2013/02/02 07:22:18 clem Exp $
+# $Id: Makefile,v 1.15 2013/02/05 17:27:27 clem Exp $
 #
 # @Copyright@
 # 
@@ -56,6 +56,11 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.15  2013/02/05 17:27:27  clem
+# added the bio/perl stuff to the service-pack
+#
+# some minor reformatting
+#
 # Revision 1.14  2013/02/02 07:22:18  clem
 # now it properly compiles all the required packages
 #
@@ -104,6 +109,7 @@
 PROFILES = condor base ganglia
 
 roll::
+	mkdir -p RPMS/noarch;
 	for i in $(PROFILES); do\
 		bash buildprofile.sh $$i||exit2;\
 	done

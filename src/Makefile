@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.20 2013/02/02 02:49:47 clem Exp $
+# $Id: Makefile,v 1.21 2013/02/05 17:27:27 clem Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,11 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.21  2013/02/05 17:27:27  clem
+# added the bio/perl stuff to the service-pack
+#
+# some minor reformatting
+#
 # Revision 1.20  2013/02/02 02:49:47  clem
 # now it properly build the rpms
 #
@@ -121,8 +126,11 @@
 #
 #
 
-INCLUDEPACKAGE = base/src/command/ base/src/devel base/src/developersguide base/src/foundation-git base/src/foundation-mysql base/src/foundation-python-extras base/src/usersguide ganglia/src/rocks-command ganglia/src/usersguide kvm/src/rocks-command kvm/src/usersguide
-#TODO update perl module perl/src/cpan perl/src/cpan-support
+INCLUDEPACKAGE = base/src/command/ base/src/devel base/src/developersguide base/src/foundation-git \
+                 base/src/foundation-mysql base/src/foundation-python-extras base/src/usersguide \
+                 ganglia/src/rocks-command ganglia/src/usersguide \
+                 kvm/src/rocks-command kvm/src/usersguide perl/src/cpan perl/src/cpan-support \
+                 bio/src/bioperl-support bio/src/bioperl-ext bio/src/bioperl
 
 BASEPATH = ../../
 
@@ -138,8 +146,9 @@ copyright rpm clean::
 		fi; \
 		cd -; \
 	done
-	#special case for the perl cpan-support packages
-	#cp $(BASEPATH)/perl/RPMS/*/opt-perl-*.rpm $(BASEPATH)/RPMS/$(ARCH) || exit 2;
+	special case for the perl cpan-support packages
+	cp $(BASEPATH)/perl/RPMS/*/opt-perl-*.rpm $(BASEPATH)/RPMS/$(ARCH) || exit 2;
+	cp $(BASEPATH)/bio/RPMS/*/opt-perl-*.rpm $(BASEPATH)/RPMS/$(ARCH) || exit 2;
 
 
 
