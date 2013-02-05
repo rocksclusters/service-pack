@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.21 2013/02/05 17:27:27 clem Exp $
+# $Id: Makefile,v 1.22 2013/02/05 18:41:32 clem Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.22  2013/02/05 18:41:32  clem
+# Deleted a # by mistake
+#
 # Revision 1.21  2013/02/05 17:27:27  clem
 # added the bio/perl stuff to the service-pack
 #
@@ -146,7 +149,7 @@ copyright rpm clean::
 		fi; \
 		cd -; \
 	done
-	special case for the perl cpan-support packages
+	#special case for the perl cpan-support packages
 	cp $(BASEPATH)/perl/RPMS/*/opt-perl-*.rpm $(BASEPATH)/RPMS/$(ARCH) || exit 2;
 	cp $(BASEPATH)/bio/RPMS/*/opt-perl-*.rpm $(BASEPATH)/RPMS/$(ARCH) || exit 2;
 
