@@ -1,0 +1,26 @@
+Rocks service pack for 6.1
+==========================
+
+
+Build instruction
+-----------------
+
+
+* After installing a Rocks 6.1 system create a devel-server.
+
+* Once the devel-server is installed download again the OS roll and add it to the devel server
+
+    rocks add roll os*iso
+    rocks enable roll os
+    cd /export/rocks/install
+    rocks create distro
+
+* run the bootstrap procedure
+
+    bash bootstrap.sh
+
+* build the roll
+
+    make roll
+
+
