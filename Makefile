@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.15 2013/02/05 17:27:27 clem Exp $
+# $Id: Makefile,v 1.16 2013/02/06 01:15:18 clem Exp $
 #
 # @Copyright@
 # 
@@ -56,6 +56,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.16  2013/02/06 01:15:18  clem
+# Needs to mkdir all the directory for the RPMS
+#
 # Revision 1.15  2013/02/05 17:27:27  clem
 # added the bio/perl stuff to the service-pack
 #
@@ -107,9 +110,14 @@
 #
 
 PROFILES = condor base ganglia
+ROCKSROOT.ABSOLUTE = $(shell cd $(ROCKSROOT); pwd)
+ARCH.BIN = $(ROCKSROOT.ABSOLUTE)/bin/arch
+ARCH = $(shell $(ARCH.BIN))
+
 
 roll::
 	mkdir -p RPMS/noarch;
+	mkdir -p RPMS/$(ARCH);
 	for i in $(PROFILES); do\
 		bash buildprofile.sh $$i||exit2;\
 	done
