@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.23 2013/02/06 01:17:30 clem Exp $
+# $Id: Makefile,v 1.24 2013/02/06 23:19:50 clem Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.24  2013/02/06 23:19:50  clem
+# added new release of the jdk to the service pack
+#
 # Revision 1.23  2013/02/06 01:17:30  clem
 # Now it properly fetches the rpm after building them
 #
@@ -136,7 +139,7 @@
 
 INCLUDEPACKAGE = base/src/command/ base/src/devel base/src/developersguide base/src/foundation-git \
                  base/src/foundation-mysql base/src/foundation-python-extras base/src/usersguide \
-                 ganglia/src/rocks-command ganglia/src/usersguide \
+		 base/src/java ganglia/src/rocks-command ganglia/src/usersguide \
                  kvm/src/rocks-command kvm/src/usersguide perl/src/cpan perl/src/cpan-support \
                  bio/src/bioperl-support bio/src/bioperl-ext bio/src/bioperl
 
@@ -163,6 +166,8 @@ copyright rpm clean::
 	#special case for the perl cpan-support packages
 	cp $(BASEPATH)/perl/RPMS/*/opt-perl-*.rpm ../RPMS/$(ARCH) || exit 2;
 	cp $(BASEPATH)/bio/RPMS/*/opt-perl-*.rpm ../RPMS/$(ARCH) || exit 2;
+	cp $(BASEPATH)/base/RPMS/$(ARCH)/jdk-* ../RPMS/$(ARCH) || exit 2;
+	cd usersguide; make rpm
 
 
 
