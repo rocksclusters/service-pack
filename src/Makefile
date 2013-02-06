@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.22 2013/02/05 18:41:32 clem Exp $
+# $Id: Makefile,v 1.23 2013/02/06 01:17:30 clem Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,11 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.23  2013/02/06 01:17:30  clem
+# Now it properly fetches the rpm after building them
+#
+# Some cp used the wrong path
+#
 # Revision 1.22  2013/02/05 18:41:32  clem
 # Deleted a # by mistake
 #
@@ -137,6 +142,12 @@ INCLUDEPACKAGE = base/src/command/ base/src/devel base/src/developersguide base/
 
 BASEPATH = ../../
 
+
+ROCKSROOT.ABSOLUTE = $(shell cd $(ROCKSROOT); pwd)
+ARCH.BIN = $(ROCKSROOT.ABSOLUTE)/bin/arch
+ARCH = $(shell $(ARCH.BIN))
+
+
 default:	rpm
 
 copyright rpm clean::
@@ -150,8 +161,8 @@ copyright rpm clean::
 		cd -; \
 	done
 	#special case for the perl cpan-support packages
-	cp $(BASEPATH)/perl/RPMS/*/opt-perl-*.rpm $(BASEPATH)/RPMS/$(ARCH) || exit 2;
-	cp $(BASEPATH)/bio/RPMS/*/opt-perl-*.rpm $(BASEPATH)/RPMS/$(ARCH) || exit 2;
+	cp $(BASEPATH)/perl/RPMS/*/opt-perl-*.rpm ../RPMS/$(ARCH) || exit 2;
+	cp $(BASEPATH)/bio/RPMS/*/opt-perl-*.rpm ../RPMS/$(ARCH) || exit 2;
 
 
 
