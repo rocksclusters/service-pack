@@ -18,6 +18,7 @@ The following procedure will install and configure the roll for the frontend.
 
 <para>
 For i386, download the Service Pack Roll:
+#TODO fix the link
 </para>
 
 <para>
@@ -64,19 +65,7 @@ Now apply the new Service Pack Roll:
 
 <warning>
 <para>
-When you execute "rocks run roll service-pack | bash" and if
-you already have the SGE roll installed, you will see the following output:
-</para>
-
-<para>
-<screen>
-
-TODO check if we have some warnings
-</screen>
-</para>
-
-<para>
-The above error messages can be safely ignored.
+It is important to reboot the system to finalize the installation.
 </para>
 
 </warning>
