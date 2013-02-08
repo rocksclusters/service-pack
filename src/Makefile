@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.24 2013/02/06 23:19:50 clem Exp $
+# $Id: Makefile,v 1.25 2013/02/08 02:27:57 clem Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.25  2013/02/08 02:27:57  clem
+# bio perl needs new version of xslt lib
+#
 # Revision 1.24  2013/02/06 23:19:50  clem
 # added new release of the jdk to the service pack
 #
@@ -141,7 +144,7 @@ INCLUDEPACKAGE = base/src/command/ base/src/devel base/src/developersguide base/
                  base/src/foundation-mysql base/src/foundation-python-extras base/src/usersguide \
 		 base/src/java ganglia/src/rocks-command ganglia/src/usersguide \
                  kvm/src/rocks-command kvm/src/usersguide perl/src/cpan perl/src/cpan-support \
-                 bio/src/bioperl-support bio/src/bioperl-ext bio/src/bioperl
+                 bio/src/libxslt bio/src/bioperl-support bio/src/bioperl-ext bio/src/bioperl 
 
 BASEPATH = ../../
 
