@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.25 2013/02/08 02:27:57 clem Exp $
+# $Id: Makefile,v 1.26 2013/02/08 02:29:13 clem Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.26  2013/02/08 02:29:13  clem
+# some minor fixes to properly handle clean targe
+#
 # Revision 1.25  2013/02/08 02:27:57  clem
 # bio perl needs new version of xslt lib
 #
@@ -156,7 +159,7 @@ ARCH = $(shell $(ARCH.BIN))
 
 default:	rpm
 
-copyright rpm clean::
+rpm::
 	for i in $(INCLUDEPACKAGE) ; do \
 		cd $(BASEPATH)$$i; \
 		$(MAKE) $@ || exit 2 ; \
@@ -169,8 +172,15 @@ copyright rpm clean::
 	#special case for the perl cpan-support packages
 	cp $(BASEPATH)/perl/RPMS/*/opt-perl-*.rpm ../RPMS/$(ARCH) || exit 2;
 	cp $(BASEPATH)/bio/RPMS/*/opt-perl-*.rpm ../RPMS/$(ARCH) || exit 2;
-	cp $(BASEPATH)/base/RPMS/$(ARCH)/jdk-* ../RPMS/$(ARCH) || exit 2;
+	cp $(BASEPATH)/base/RPMS/$(ARCH)/jdk-*.rpm ../RPMS/$(ARCH) || exit 2;
 	cd usersguide; make rpm
 
+
+copyright clean::
+	for i in $(INCLUDEPACKAGE) ; do \
+		cd $(BASEPATH)$$i; \
+		$(MAKE) $@ || exit 2 ; \
+		cd -; \
+	done
 
 
