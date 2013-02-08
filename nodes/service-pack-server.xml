@@ -19,10 +19,8 @@
      	echo "<package cond=\"roll_install_on_the_fly\">$name</package>";
      done
 
-     -- 
         this code is only used to upgrade an already existing system running 
         rocks 6.1
-     --
 -->
 <package cond="roll_install_on_the_fly">foundation-git</package>
 <package cond="roll_install_on_the_fly">foundation-mysql</package>
@@ -188,6 +186,9 @@ cp /etc/ld.so.conf.d/foundation-mysql.conf /etc/ld.so.conf.d/foundation-mysql.ba
 sed -i '/opt/d;/qt-3.1/d;/X11R6/d;/mysql/d' /etc/ld.so.conf
 rm /etc/ld.so.conf.d/foundation-mysql.conf
 /sbin/ldconfig
+
+#zfs-linux
+/opt/rocks/bin/rocks set appliance attr nas zfs true
 
 echo ------------------------ Service pack installed  ------------------------
 echo ------------------------ you should now _reboot_ ------------------------
