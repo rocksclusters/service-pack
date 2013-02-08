@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.26 2013/02/08 02:29:13 clem Exp $
+# $Id: Makefile,v 1.27 2013/02/08 02:30:29 clem Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,12 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.27  2013/02/08 02:30:29  clem
+# adding new version of zfs
+#
+# when simple things make your life impossible, half a day behind this stupid
+# addition....
+#
 # Revision 1.26  2013/02/08 02:29:13  clem
 # some minor fixes to properly handle clean targe
 #
@@ -147,7 +153,8 @@ INCLUDEPACKAGE = base/src/command/ base/src/devel base/src/developersguide base/
                  base/src/foundation-mysql base/src/foundation-python-extras base/src/usersguide \
 		 base/src/java ganglia/src/rocks-command ganglia/src/usersguide \
                  kvm/src/rocks-command kvm/src/usersguide perl/src/cpan perl/src/cpan-support \
-                 bio/src/libxslt bio/src/bioperl-support bio/src/bioperl-ext bio/src/bioperl 
+                 bio/src/libxslt bio/src/bioperl-support bio/src/bioperl-ext bio/src/bioperl \
+		 zfs-linux/src/spl zfs-linux/src/zfs
 
 BASEPATH = ../../
 

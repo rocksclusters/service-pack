@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.16 2013/02/06 01:15:18 clem Exp $
+# $Id: Makefile,v 1.17 2013/02/08 02:30:29 clem Exp $
 #
 # @Copyright@
 # 
@@ -56,6 +56,12 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.17  2013/02/08 02:30:29  clem
+# adding new version of zfs
+#
+# when simple things make your life impossible, half a day behind this stupid
+# addition....
+#
 # Revision 1.16  2013/02/06 01:15:18  clem
 # Needs to mkdir all the directory for the RPMS
 #
@@ -109,7 +115,8 @@
 #
 #
 
-PROFILES = condor base ganglia
+
+PROFILES = condor base ganglia zfs-linux
 ROCKSROOT.ABSOLUTE = $(shell cd $(ROCKSROOT); pwd)
 ARCH.BIN = $(ROCKSROOT.ABSOLUTE)/bin/arch
 ARCH = $(shell $(ARCH.BIN))
