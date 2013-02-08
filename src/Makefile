@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.27 2013/02/08 02:30:29 clem Exp $
+# $Id: Makefile,v 1.28 2013/02/08 19:25:47 clem Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,11 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.28  2013/02/08 19:25:47  clem
+# zfs-linux is a source only roll
+#
+# i should not include the binary part of the roll :-(
+#
 # Revision 1.27  2013/02/08 02:30:29  clem
 # adding new version of zfs
 #
@@ -154,7 +159,7 @@ INCLUDEPACKAGE = base/src/command/ base/src/devel base/src/developersguide base/
 		 base/src/java ganglia/src/rocks-command ganglia/src/usersguide \
                  kvm/src/rocks-command kvm/src/usersguide perl/src/cpan perl/src/cpan-support \
                  bio/src/libxslt bio/src/bioperl-support bio/src/bioperl-ext bio/src/bioperl \
-		 zfs-linux/src/spl zfs-linux/src/zfs
+		 zfs-linux/src/zfs-source-roll
 
 BASEPATH = ../../
 
