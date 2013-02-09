@@ -187,8 +187,6 @@ sed -i '/opt/d;/qt-3.1/d;/X11R6/d;/mysql/d' /etc/ld.so.conf
 rm /etc/ld.so.conf.d/foundation-mysql.conf
 /sbin/ldconfig
 
-#zfs-linux
-/opt/rocks/bin/rocks set appliance attr nas zfs true
 
 echo ------------------------ Service pack installed  ------------------------
 echo ------------------------ you should now _reboot_ ------------------------

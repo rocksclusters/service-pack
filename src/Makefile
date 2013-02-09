@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.28 2013/02/08 19:25:47 clem Exp $
+# $Id: Makefile,v 1.29 2013/02/09 00:55:09 clem Exp $
 #
 # @Copyright@
 # 
@@ -54,112 +54,13 @@
 # 
 # @Copyright@
 #
-# $Log: Makefile,v $
-# Revision 1.28  2013/02/08 19:25:47  clem
-# zfs-linux is a source only roll
-#
-# i should not include the binary part of the roll :-(
-#
-# Revision 1.27  2013/02/08 02:30:29  clem
-# adding new version of zfs
-#
-# when simple things make your life impossible, half a day behind this stupid
-# addition....
-#
-# Revision 1.26  2013/02/08 02:29:13  clem
-# some minor fixes to properly handle clean targe
-#
-# Revision 1.25  2013/02/08 02:27:57  clem
-# bio perl needs new version of xslt lib
-#
-# Revision 1.24  2013/02/06 23:19:50  clem
-# added new release of the jdk to the service pack
-#
-# Revision 1.23  2013/02/06 01:17:30  clem
-# Now it properly fetches the rpm after building them
-#
-# Some cp used the wrong path
-#
-# Revision 1.22  2013/02/05 18:41:32  clem
-# Deleted a # by mistake
-#
-# Revision 1.21  2013/02/05 17:27:27  clem
-# added the bio/perl stuff to the service-pack
-#
-# some minor reformatting
-#
-# Revision 1.20  2013/02/02 02:49:47  clem
-# now it properly build the rpms
-#
-# Im still missing the perl cpan
-#
-# Revision 1.19  2013/02/01 02:10:40  clem
-# now with the kickstart rpms
-#
-# Revision 1.18  2013/02/01 01:44:45  clem
-# Now this Makefile really does some compilation
-#
-# before it was just a test script
-#
-# Revision 1.17  2013/02/01 00:45:57  clem
-# First take at a Makefile which compile rpm directly from other rolls
-#
-# Revision 1.16  2012/11/27 00:49:12  phil
-# Copyright Storm for Emerald Boa
-#
-# Revision 1.15  2012/05/06 05:49:20  phil
-# Copyright Storm for Mamba
-#
-# Revision 1.14  2011/07/23 02:31:17  phil
-# Viper Copyright
-#
-# Revision 1.13  2010/12/14 19:33:24  bruno
-# add the new tracker client into initrd inside the rocks-boot RPMS.
-#
-# also, make it easy to change the version number of the service pack roll and
-# have all the RPMs 'release' number match the version number of the roll
-#
-# Revision 1.12  2010/12/07 23:52:16  bruno
-# the start of SP 5.4.1
-#
-# Revision 1.11  2010/09/07 23:53:24  bruno
-# star power for gb
-#
-# Revision 1.10  2010/08/12 21:43:40  mjk
-# 5.3.1 - fixes corrupted package downloads
-#
-# Revision 1.9  2009/08/12 23:02:46  bruno
-# fixes for 5.2.2
-#
-# Revision 1.7  2009/05/01 19:07:22  mjk
-# chimi con queso
-#
-# Revision 1.6  2008/10/18 00:56:13  mjk
-# copyright 5.1
-#
-# Revision 1.5  2008/03/06 23:41:57  mjk
-# copyright storm on
-#
-# Revision 1.4  2007/06/23 04:04:00  mjk
-# mars hill copyright
-#
-# Revision 1.3  2006/12/19 22:21:50  bruno
-# get the dependencies right
-#
-# Revision 1.2  2006/12/16 21:01:31  bruno
-# more goodies for the service pack roll
-#
-# Revision 1.1  2006/10/06 23:33:45  bruno
-# first draft
-#
 #
 
 INCLUDEPACKAGE = base/src/command/ base/src/devel base/src/developersguide base/src/foundation-git \
                  base/src/foundation-mysql base/src/foundation-python-extras base/src/usersguide \
 		 base/src/java ganglia/src/rocks-command ganglia/src/usersguide \
                  kvm/src/rocks-command kvm/src/usersguide perl/src/cpan perl/src/cpan-support \
-                 bio/src/libxslt bio/src/bioperl-support bio/src/bioperl-ext bio/src/bioperl \
-		 zfs-linux/src/zfs-source-roll
+                 bio/src/libxslt bio/src/bioperl-support bio/src/bioperl-ext bio/src/bioperl
 
 BASEPATH = ../../
 
