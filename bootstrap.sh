@@ -1,6 +1,6 @@
 #!/bin/bash -x
 #
-# $Id: bootstrap.sh,v 1.4 2013/02/09 00:55:09 clem Exp $
+# $Id: bootstrap.sh,v 1.5 2013/02/13 19:51:58 clem Exp $
 #
 # @Copyright@
 # 
@@ -60,7 +60,12 @@
 # we need to boostrap every roll we want to compile an rpm from
 #
 
-ROLLS="base ganglia kvm perl bio"
+ROLLS="base ganglia perl bio"
+
+if [ `arch` == 'x86_64' ]; then 
+	ROLLS="$ROLLS kvm"
+fi
+
 
 for roll in $ROLLS; do 
 	cd ../$roll;
