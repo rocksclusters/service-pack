@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.29 2013/02/09 00:55:09 clem Exp $
+# $Id: Makefile,v 1.30 2013/02/13 19:47:30 clem Exp $
 #
 # @Copyright@
 # 
@@ -59,7 +59,7 @@
 INCLUDEPACKAGE = base/src/command/ base/src/devel base/src/developersguide base/src/foundation-git \
                  base/src/foundation-mysql base/src/foundation-python-extras base/src/usersguide \
 		 base/src/java ganglia/src/rocks-command ganglia/src/usersguide \
-                 kvm/src/rocks-command kvm/src/usersguide perl/src/cpan perl/src/cpan-support \
+                 perl/src/cpan perl/src/cpan-support \
                  bio/src/libxslt bio/src/bioperl-support bio/src/bioperl-ext bio/src/bioperl
 
 BASEPATH = ../../
@@ -69,6 +69,9 @@ ROCKSROOT.ABSOLUTE = $(shell cd $(ROCKSROOT); pwd)
 ARCH.BIN = $(ROCKSROOT.ABSOLUTE)/bin/arch
 ARCH = $(shell $(ARCH.BIN))
 
+ifeq ($(strip $(ARCH)), x86_64)
+INCLUDEPACKAGE += kvm/src/rocks-command kvm/src/usersguide
+endif
 
 default:	rpm
 
