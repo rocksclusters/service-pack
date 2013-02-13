@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.17 2013/02/08 02:30:29 clem Exp $
+# $Id: Makefile,v 1.18 2013/02/13 19:47:06 clem Exp $
 #
 # @Copyright@
 # 
@@ -56,6 +56,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.18  2013/02/13 19:47:06  clem
+# remove some leftover zfs-linux stuff
+#
 # Revision 1.17  2013/02/08 02:30:29  clem
 # adding new version of zfs
 #
@@ -116,7 +119,7 @@
 #
 
 
-PROFILES = condor base ganglia zfs-linux
+PROFILES = condor base ganglia
 ROCKSROOT.ABSOLUTE = $(shell cd $(ROCKSROOT); pwd)
 ARCH.BIN = $(ROCKSROOT.ABSOLUTE)/bin/arch
 ARCH = $(shell $(ARCH.BIN))
