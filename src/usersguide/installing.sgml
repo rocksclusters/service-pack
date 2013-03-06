@@ -16,25 +16,10 @@ The Service Pack Roll can be installed on running frontend.
 The following procedure will install and configure the roll for the frontend.
 </para>
 
-<para>
-For i386, download the Service Pack Roll:
-#TODO fix the link
-</para>
 
 <para>
-<screen>
-# wget http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-5.4/linux/service-pack-5.4.2-1.i386.disk1.iso
-</screen>
-</para>
-
-<para>
-Or for x86_64, download the Service Pack Roll:
-</para>
-
-<para>
-<screen>
-# wget http://www.rocksclusters.org/ftp-site/pub/rocks/rocks-5.4/linux/service-pack-5.4.2-1.x86_64.disk1.iso
-</screen>
+Download the Service Pack Roll from the download section of the Rocks Clusters web site (<ulink url="http://www.rocksclusters.org/wordpress/?page_id=449">http://www.rocksclusters.org/wordpress/?page_id=449</ulink>).
+The Service Pack Roll is available only for Rocks version 6.1 both for 32 bit and for 64 bits.
 </para>
 
 <para>
@@ -53,7 +38,7 @@ Now apply the new Service Pack Roll:
 
 <para>
 <screen>
-# rocks set host attr localhost roll_install_on_the_fly true shadow=yes
+# rocks set host attr localhost roll_install_on_the_fly true
 # rocks add roll service-pack*iso
 # rocks enable roll service-pack
 # cd /export/rocks/install
