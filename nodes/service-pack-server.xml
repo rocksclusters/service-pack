@@ -194,6 +194,8 @@ sed -i '/opt/d;/qt-3.1/d;/X11R6/d;/mysql/d' /etc/ld.so.conf
 rm /etc/ld.so.conf.d/foundation-mysql.conf
 /sbin/ldconfig
 
+#fix partitioning
+rocks save host partitions
 
 echo ------------------------ Service pack installed  ------------------------
 echo ------------------------ you should now _reboot_ ------------------------
