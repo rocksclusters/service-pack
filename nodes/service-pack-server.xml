@@ -23,178 +23,32 @@
         rocks 6.1
 -->
 
-<package cond="roll_install_on_the_fly">bio_libxslt</package>
-<package cond="roll_install_on_the_fly">foundation-git</package>
-<package cond="roll_install_on_the_fly">foundation-mysql</package>
-<package cond="roll_install_on_the_fly">foundation-python-extras</package>
-<package cond="roll_install_on_the_fly">jdk</package>
-<package cond="roll_install_on_the_fly">opt-perl-AcePerl</package>
-<package cond="roll_install_on_the_fly">opt-perl-Algorithm-Diff</package>
-<package cond="roll_install_on_the_fly">opt-perl-Algorithm-Munkres</package>
-<package cond="roll_install_on_the_fly">opt-perl-AppConfig</package>
-<package cond="roll_install_on_the_fly">opt-perl-Array-Compare</package>
-<package cond="roll_install_on_the_fly">opt-perl-BioPerl</package>
-<package cond="roll_install_on_the_fly">opt-perl-BioPerl-DB</package>
-<package cond="roll_install_on_the_fly">opt-perl-BioPerl-Network</package>
-<package cond="roll_install_on_the_fly">opt-perl-BioPerl-Run</package>
-<package cond="roll_install_on_the_fly">opt-perl-Cache-Cache</package>
-<package cond="roll_install_on_the_fly">opt-perl-Class-AutoClass</package>
-<package cond="roll_install_on_the_fly">opt-perl-Class-Inspector</package>
-<package cond="roll_install_on_the_fly">opt-perl-Class-Load</package>
-<package cond="roll_install_on_the_fly">opt-perl-Class-Load-XS</package>
-<package cond="roll_install_on_the_fly">opt-perl-Clone</package>
-<package cond="roll_install_on_the_fly">opt-perl-Crypt-RC4</package>
-<package cond="roll_install_on_the_fly">opt-perl-Data-OptList</package>
-<package cond="roll_install_on_the_fly">opt-perl-Data-Section</package>
-<package cond="roll_install_on_the_fly">opt-perl-Data-Stag</package>
-<package cond="roll_install_on_the_fly">opt-perl-DBD-mysql</package>
-<package cond="roll_install_on_the_fly">opt-perl-DBI</package>
-<package cond="roll_install_on_the_fly">opt-perl-Devel-GlobalDestruction</package>
-<package cond="roll_install_on_the_fly">opt-perl-Digest-Perl-MD5</package>
-<package cond="roll_install_on_the_fly">opt-perl-Digest-SHA1</package>
-<package cond="roll_install_on_the_fly">opt-perl-Dist-CheckConflicts</package>
-<package cond="roll_install_on_the_fly">opt-perl-Encode-Locale</package>
-<package cond="roll_install_on_the_fly">opt-perl-Error</package>
-<package cond="roll_install_on_the_fly">opt-perl-Eval-Closure</package>
-<package cond="roll_install_on_the_fly">opt-perl-ExtUtils-MakeMaker</package>
-<package cond="roll_install_on_the_fly">opt-perl-File-Find-Rule</package>
-<package cond="roll_install_on_the_fly">opt-perl-File-Listing</package>
-<package cond="roll_install_on_the_fly">opt-perl-File-Slurp</package>
-<package cond="roll_install_on_the_fly">opt-perl-File-Sort</package>
-<package cond="roll_install_on_the_fly">opt-perl-File-Which</package>
-<package cond="roll_install_on_the_fly">opt-perl-GD</package>
-<package cond="roll_install_on_the_fly">opt-perl-GD-SVG</package>
-<package cond="roll_install_on_the_fly">opt-perl-Graph</package>
-<package cond="roll_install_on_the_fly">opt-perl-GraphViz</package>
-<package cond="roll_install_on_the_fly">opt-perl-Hash-AutoHash</package>
-<package cond="roll_install_on_the_fly">opt-perl-Hash-AutoHash-Args</package>
-<package cond="roll_install_on_the_fly">opt-perl-HTML-Parser</package>
-<package cond="roll_install_on_the_fly">opt-perl-HTML-Tagset</package>
-<package cond="roll_install_on_the_fly">opt-perl-HTTP-Cookies</package>
-<package cond="roll_install_on_the_fly">opt-perl-HTTP-Daemon</package>
-<package cond="roll_install_on_the_fly">opt-perl-HTTP-Date</package>
-<package cond="roll_install_on_the_fly">opt-perl-HTTP-Message</package>
-<package cond="roll_install_on_the_fly">opt-perl-HTTP-Negotiate</package>
-<package cond="roll_install_on_the_fly">opt-perl-Inline</package>
-<package cond="roll_install_on_the_fly">opt-perl-IO-HTML</package>
-<package cond="roll_install_on_the_fly">opt-perl-IO-String</package>
-<package cond="roll_install_on_the_fly">opt-perl-IO-stringy</package>
-<package cond="roll_install_on_the_fly">opt-perl-IPC-Run</package>
-<package cond="roll_install_on_the_fly">opt-perl-libwww-perl</package>
-<package cond="roll_install_on_the_fly">opt-perl-libxml-perl</package>
-<package cond="roll_install_on_the_fly">opt-perl-List-MoreUtils</package>
-<package cond="roll_install_on_the_fly">opt-perl-LWP-MediaTypes</package>
-<package cond="roll_install_on_the_fly">opt-perl-Math-Derivative</package>
-<package cond="roll_install_on_the_fly">opt-perl-Math-Random</package>
-<package cond="roll_install_on_the_fly">opt-perl-Math-Spline</package>
-<package cond="roll_install_on_the_fly">opt-perl-MLDBM</package>
-<package cond="roll_install_on_the_fly">opt-perl-Module-Implementation</package>
-<package cond="roll_install_on_the_fly">opt-perl-Module-Runtime</package>
-<package cond="roll_install_on_the_fly">opt-perl-Module-Signature</package>
-<package cond="roll_install_on_the_fly">opt-perl-Moose</package>
-<package cond="roll_install_on_the_fly">opt-perl-MRO-Compat</package>
-<package cond="roll_install_on_the_fly">opt-perl-Net-HTTP</package>
-<package cond="roll_install_on_the_fly">opt-perl-Number-Compare</package>
-<package cond="roll_install_on_the_fly">opt-perl-OLE-Storage_Lite</package>
-<package cond="roll_install_on_the_fly">opt-perl-Package-DeprecationManager</package>
-<package cond="roll_install_on_the_fly">opt-perl-Package-Stash</package>
-<package cond="roll_install_on_the_fly">opt-perl-Package-Stash-XS</package>
-<package cond="roll_install_on_the_fly">opt-perl-Params-Util</package>
-<package cond="roll_install_on_the_fly">opt-perl-Parse-RecDescent</package>
-<package cond="roll_install_on_the_fly">opt-perl-Path-Class</package>
-<package cond="roll_install_on_the_fly">opt-perl-Pod-POM</package>
-<package cond="roll_install_on_the_fly">opt-perl-Readonly</package>
-<package cond="roll_install_on_the_fly">opt-perl-Set-Scalar</package>
-<package cond="roll_install_on_the_fly">opt-perl-SOAP-Lite</package>
-<package cond="roll_install_on_the_fly">opt-perl-Software-License</package>
-<package cond="roll_install_on_the_fly">opt-perl-Spreadsheet-ParseExcel</package>
-<package cond="roll_install_on_the_fly">opt-perl-Statistics-Descriptive</package>
-<package cond="roll_install_on_the_fly">opt-perl-Sub-Exporter</package>
-<package cond="roll_install_on_the_fly">opt-perl-Sub-Exporter-Progressive</package>
-<package cond="roll_install_on_the_fly">opt-perl-Sub-Install</package>
-<package cond="roll_install_on_the_fly">opt-perl-Sub-Name</package>
-<package cond="roll_install_on_the_fly">opt-perl-Sub-Uplevel</package>
-<package cond="roll_install_on_the_fly">opt-perl-SVG</package>
-<package cond="roll_install_on_the_fly">opt-perl-SVG-Graph</package>
-<package cond="roll_install_on_the_fly">opt-perl-Task-Weaken</package>
-<package cond="roll_install_on_the_fly">opt-perl-Template-Toolkit</package>
-<package cond="roll_install_on_the_fly">opt-perl-Test-Deep</package>
-<package cond="roll_install_on_the_fly">opt-perl-Test-Fatal</package>
-<package cond="roll_install_on_the_fly">opt-perl-Test-NoWarnings</package>
-<package cond="roll_install_on_the_fly">opt-perl-Test-Pod</package>
-<package cond="roll_install_on_the_fly">opt-perl-Test-Requires</package>
-<package cond="roll_install_on_the_fly">opt-perl-Test-Script</package>
-<package cond="roll_install_on_the_fly">opt-perl-Test-Tester</package>
-<package cond="roll_install_on_the_fly">opt-perl-Test-use-ok</package>
-<package cond="roll_install_on_the_fly">opt-perl-Test-Warn</package>
-<package cond="roll_install_on_the_fly">opt-perl-Text-Autoformat</package>
-<package cond="roll_install_on_the_fly">opt-perl-Text-Glob</package>
-<package cond="roll_install_on_the_fly">opt-perl-Text-Iconv</package>
-<package cond="roll_install_on_the_fly">opt-perl-Text-Reform</package>
-<package cond="roll_install_on_the_fly">opt-perl-Text-Shellwords</package>
-<package cond="roll_install_on_the_fly">opt-perl-Text-Template</package>
-<package cond="roll_install_on_the_fly">opt-perl-Tie-Hash-MultiValue</package>
-<package cond="roll_install_on_the_fly">opt-perl-Tie-ToObject</package>
-<package cond="roll_install_on_the_fly">opt-perl-Tk</package>
-<package cond="roll_install_on_the_fly">opt-perl-Tree-DAG_Node</package>
-<package cond="roll_install_on_the_fly">opt-perl-Try-Tiny</package>
-<package cond="roll_install_on_the_fly">opt-perl-URI</package>
-<package cond="roll_install_on_the_fly">opt-perl-WWW-RobotRules</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-DOM</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-DOM-XPath</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-Filter-BufferText</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-LibXML</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-LibXML</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-LibXSLT</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-LibXSLT</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-NamespaceSupport</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-NamespaceSupport</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-Parser</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-RegExp</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-SAX</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-SAX</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-SAX-Base</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-SAX-Base</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-SAX-Expat</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-SAX-Writer</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-Simple</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-Twig</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-Writer</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-XPath</package>
-<package cond="roll_install_on_the_fly">opt-perl-XML-XPathEngine</package>
-<package cond="roll_install_on_the_fly">opt-perl-YAML</package>
-<package cond="roll_install_on_the_fly">rocks-command</package>
-<package cond="roll_install_on_the_fly">rocks-command-ganglia</package>
-<package cond="roll_install_on_the_fly">rocks-command-kvm</package>
-<package cond="roll_install_on_the_fly">rocks-cpan</package>
-<package cond="roll_install_on_the_fly">rocks-devel</package>
-<package cond="roll_install_on_the_fly">rocks-developersguide</package>
-<package cond="roll_install_on_the_fly">roll-base-usersguide</package>
-<package cond="roll_install_on_the_fly">roll-ganglia-usersguide</package>
-<package cond="roll_install_on_the_fly">roll-kvm-usersguide</package>
-
 
 
 
 <post cond="roll_install_on_the_fly">
 
-#restore the my.cnf since rpm moved it away
+# update the packages
+yum clean all
+yum update
+
+# restore the my.cnf since rpm moved it away
 cp /opt/rocks/etc/my.cnf.rpmsave /opt/rocks/etc/my.cnf
 
-#fix grub timeout on FE
+# fix grub timeout on FE
 sed -i 's/timeout=0/timeout=10/' /boot/grub/menu.lst
 
 
 
-#backup 
+# backup 
 cp /etc/ld.so.conf /etc/backup_ld.so.conf
 cp /etc/ld.so.conf.d/foundation-mysql.conf /etc/ld.so.conf.d/foundation-mysql.backup_unused
-#remove unused line from 
+# remove unused line from 
 sed -i '/opt/d;/qt-3.1/d;/X11R6/d;/mysql/d' /etc/ld.so.conf
 rm /etc/ld.so.conf.d/foundation-mysql.conf
 /sbin/ldconfig
 
-#fix partitioning
+# fix partitioning
 rocks save host partitions
 
 echo ------------------------ Service pack installed  ------------------------
