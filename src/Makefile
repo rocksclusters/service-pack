@@ -78,7 +78,7 @@ default:	rpm
 rpm::
 	for i in $(INCLUDEPACKAGE) ; do \
 		cd $(BASEPATH)$$i; \
-		$(MAKE) $@ || exit 2 ; \
+		ROLLNAME=`awk  '{if ( /ROLLNAME/ ) print $3}' ../../version.mk `  $(MAKE) $@ || exit 2 ; \
 		PkgName=`grep ^NAME version.mk | awk '{print $$3}'|sed 's/$$(ROLL)/*/'`; \
 		if [ "$$PkgName" ] ; then \
 			cp $(BASEPATH)RPMS/*/$$PkgName*rpm ../../../service-pack/RPMS/$(ARCH) || exit 2; \
