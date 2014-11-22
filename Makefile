@@ -5,7 +5,7 @@
 # 
 # 				Rocks(r)
 # 		         www.rocksclusters.org
-# 		       version 6.1.1 (Sand Boa)
+# 		         version 6.2 (SideWinder)
 # 
 # Copyright (c) 2000 - 2014 The Regents of the University of California.
 # All rights reserved.	
